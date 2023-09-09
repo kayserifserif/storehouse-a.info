@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>philtre – s.che</title>
+    
+    <link rel="canonical" href="https://storehouse-a.info/poems/philtre.html" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info | philtre – s.che" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/poems/philtre.html" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+      html {
+        height: 100%;
+      }
+      
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Menlo", monospace;
+        font-size: 15px;
+      }
+      
+      .poem {
+        text-align: center;
+        white-space: pre-line;
+      }
+      
+      .visible {
+        visibility: visible;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <pre id="poem" class="poem">
+<span class="line">Pepper</span>
+<span class="line">pearls</span>
+<span class="line">nightsHade</span>
+<span class="line">aloes</span>
+<span class="line">wIllow</span>
+<span class="line">fenneL</span>
+<span class="line">pansies necTar</span>
+<span class="line">ambergris sage</span>
+<span class="line">mandRakes</span>
+<span class="line">liquoricE</span>
+<span class="line">cinnamon</span>
+
+
+
+reminder: shake well before using.
+    </pre>
+    
+    <script>
+      const texts = [
+        "Pepper",
+        "pearls",
+        "nightsHade",
+        "aloes",
+        "wIllow",
+        "fenneL",
+        "pansies necTar",
+        "ambergris sage",
+        "mandRakes",
+        "liquoricE",
+        "cinnamon"
+      ];
+      
+      const poem = document.getElementById("poem");
+      const lines = document.getElementsByClassName("line");
+      
+      let isMouseDown = false;
+      let hasMouseMoved = false;
+      
+      // replace each line with '!' on mousedown
+      poem.addEventListener("mousedown", () => {
+        isMouseDown = true;
+        hasMouseMoved = false;
+        exclamatise();
+      });
+      
+      // scramble characters on mousemove (if mousedown)
+      document.addEventListener("mousemove", event => {
+        event.preventDefault();
+        if (isMouseDown) {
+          hasMouseMoved = true;
+        }
+      });
+      
+      // scramble on mouseup
+      document.addEventListener("mouseup", () => {
+        isMouseDown = false;
+        if (hasMouseMoved) {
+          scramble();
+          hasMouseMoved = false;
+        }
+      })
+      
+      function exclamatise() {
+        for (let line of lines) {
+          let text = line.textContent;
+          let newText = "!".repeat(text.length);
+          line.textContent = newText;
+        }
+      }
+      
+      function scramble() {
+        for (let i = 0; i < lines.length; i++) {
+          let text = texts[i];
+          let characters = text.split("");
+          characters.sort(() => Math.random() - 0.5); // shuffle
+          let newText = characters.join("");
+          lines[i].textContent = newText;
+        }
+      }
+    </script>
+    
+  </body>
+</html>

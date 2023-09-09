@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>aster – s.che</title>
+    
+    <link rel="canonical" href="https://storehouse-a.info/poems/aster.html" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info | aster – s.che" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/poems/aster.html" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+      html {
+        height: 100%;
+      }
+      
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Menlo", monospace;
+      }
+      
+      .poem {
+        text-align: center;
+        white-space: pre-line;
+      }
+      
+      span {
+        white-space: pre;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <pre class="poem" id="poem">
+<span class="text">Eve                              s,</span>
+<span class="text">rything is repe</span>*<span class="text">ted m</span>*<span class="text">ny time</span>
+<span class="text">fourteen times, but two</span>
+<span class="text">things in the world seem to be</span>
+<span class="text">only once: </span>*<span class="text">bove, the intric</span>*<span class="text">te sun;</span>
+<span class="text">below, </span>*<span class="text">sterion. Perh</span>*<span class="text">ps</span>
+<span class="text">I h</span>*<span class="text">ve cre</span>*<span class="text">ted the</span>
+<span class="text">st</span>*<span class="text">rs and the sun</span>
+*<span class="text">nd this enormous</span>
+<span class="text">house, but I</span>
+<span class="text">no longer</span>
+<span class="text">remember.</span>
+*
+* *
+
+
+
+
+
+<span class="text">Jorge Luis Borges</span>
+<i><span class="text">The House of </span>*<span class="text">sterion</span></i>
+    </pre>
+    
+    <script>
+      const texts = document.getElementsByClassName("text");
+      const HOURINMINUTES = 60;
+      const MAXMINUTES = 12 * HOURINMINUTES;
+      const MAXCOLOR = 255;
+      
+      // updates color of text depending on time of day
+      function updateColor() {
+        let time = new Date();
+        let minuteOfDay = time.getHours() * HOURINMINUTES + time.getMinutes();
+        let color;
+        if (minuteOfDay <= MAXMINUTES) {
+          // text gets more visible towards 12pm
+          color = MAXCOLOR - (MAXCOLOR * (minuteOfDay / MAXMINUTES));
+        } else {
+          // text gets less visible towards 12am
+          color = MAXCOLOR * (MAXMINUTES / minuteOfDay);
+        }
+        for (let text of texts) {
+          text.style.color = `rgb(${color}, ${color}, ${color}`;
+        };
+      }
+      
+      // update the first time
+      updateColor();
+      // update every minute
+      setInterval(updateColor, 10000);
+    </script>
+    
+  </body>
+</html>

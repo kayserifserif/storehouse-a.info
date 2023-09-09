@@ -1,0 +1,72 @@
+// RING
+//reference:https://en.wikipedia.org/wiki/Protection_ring#/media/File:Priv_rings.svg
+//concept: typing out all (arranged in circle) words in ring 3 will clear ring 3 and reveal ring 2
+//typing out all words in ring 2 will clear ring and reveal ring 1 etc.
+
+//outermost ring (ring 3):
+1610 Galileo Galilei turned a telescope to the sky
+
+
+                                1610
+                          y            Gali
+                        sk                 leo
+                     
+                     e                        Ga
+                    th                        li
+                                               le
+                    to                         i
+                            
+                     ope                    tu
+                       sc                  rn
+                          tele           ed
+                                  a
+
+//ring 2:
+1675 Cassini at the Paris Observatory
+
+
+
+                                1675
+                                      Cass
+                            y             in
+                         tor               i
+                        va                  
+                        ser                at
+                         Ob                   
+                                          th
+                            is          e
+                                 Par
+ 
+ 
+
+//ring 1:
+C3H6OS
+                                   C
+                                
+                             s           3
+                               
+                             O           H
+
+                                   6
+
+//ring 0 (centre):
+Kernel
+
+
+                                   k
+                                l     e
+                                e     r
+                                   n
+
+
+
+//Prompt on screen below the circluar structure:
+Type to clear:
+
+//Once ring 0 'Kernel' is revealed the 'Type to clear:' prompt disappears.
+
+
+
+
+
+

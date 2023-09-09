@@ -1,0 +1,36 @@
+// GEM
+// '*' are always fixed and black (opaque)
+// the opacity of the rest of the letters is decided by the time of day.
+// based on user's local time
+// i.e. from 7am-5pm (daylight hours) all letters are visible
+// 5pm-7pm and 5am-7am letters are faded (gray)
+// 7pm-5am (night hours) letters are not visible leaving only the stars ('*')
+// please italicise title 'The House of *sterion' thanks!
+ 
+                            
+               
+               
+               
+
+
+           Eve                              s,
+              rything is repe*ted m*ny time
+                 fourteen times, but two
+             things in the world seem to be
+          only once: *bove, the intric*te sun;
+                below, *sterion. Perh*ps
+                   I h*ve cre*ted the
+                    st*rs and the sun
+                    *nd this enormous
+                       house, but I
+                        no longer
+                        remember.
+                            *
+                           * *
+                           
+                           
+                                                      
+                                        
+                    
+                    Jorge Luis Borges
+                  The House of *sterion

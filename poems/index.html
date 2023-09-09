@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>Storehouse-A.info | poems</title>
+    
+    <link rel="canonical" href="https://storehouse-a.info/poems/" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info | poems" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/poems/" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+      body {
+        font-family: monospace;
+        width: 70ch;
+        margin: 4em auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>poems</h1>
+    <p><abbr title="spell book">+</abbr> <a class="link" id="information" href="/poems/information.html">information</a>  – s.che</p>
+    <p><abbr title="scroll">?</abbr> <a class="link" id="brush" href="/poems/brush.html">brush</a> – s.che</p>
+    <p><abbr title="ring">=</abbr> <a class="link" id="buffer" href="/poems/buffer.html">buffer</a> – s.che</p>
+    <p><abbr title="kernel">=</abbr> <a class="link" id="kernel" href="/poems/kernel.html">kernel</a> - s.che</p>
+    <p><abbr title="gem">*</abbr> <a class="link" id="aster" href="/poems/aster.html">aster</a> - s.che</p>
+    <p><abbr title="potion">!</abbr> <a class="link" id="philtre" href="/poems/philtre.html">philtre</a> - s.che</p>
+    <p><abbr title="wand">/</abbr> <a class="link" id="iliad" href="/poems/iliad.html">iliad</a> - s.che</p>
+    <p><abbr title="poetic tool">(</abbr> <a class="link" id="intermission" href="/poems/intermission.html">intermission</a> - s.che</p>
+    <p><abbr title="gem">*</abbr> <a class="link" id="rivers" href="/poems/rivers.html">rivers</a> – katherine yang</p>
+    <script>
+      let links = document.getElementsByClassName("link");
+      for (link of links) {
+        console.log(link);
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          let newWindow = window.open(event.target.href, event.target.id, "menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes,width=800,height=800");
+          newWindow.focus();
+        });
+      }
+    </script>
+  </body>
+</html>

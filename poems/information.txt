@@ -1,0 +1,30 @@
+// SPELL BOOK
+// initially: "obtain information? y/n" press y to reveal line
+// each click reveals a new line
+// finally reveals "welcome to the"
+
+
+
+
+
+                        welcome to the  
+    
+                              in
+                          formation
+                        in_formation
+                       in_for_mat_ion
+                       in_form_at_i_on
+                      i_nf_or_ma_ti_on
+                      in_fo_rm_at_i_ion
+                      in_f_or_m_at_ion
+                       in_for_ma_tion
+                        info_r_mation
+                         information
+                           centre
+                           
+                           
+                     obtain information? 
+                             y/n
+                  
+                  
+                  

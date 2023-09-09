@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>information – s.che</title>
+    
+    <link rel="canonical" href="https://storehouse-a.info/poems/intermission.html" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info | intermission – s.che" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/poems/intermission.html" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+      html {
+        height: 100%;
+      }
+      
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Menlo", monospace;
+        font-size: 18px;
+      }
+      
+      .poem {
+        text-align: center;
+        white-space: pre-line;
+      }
+      
+      span {
+        opacity: 0;
+        transition: 10s opacity;
+      }
+      
+      .continue {
+        opacity: 0;
+        transition: .5s opacity;
+      }
+      
+      .visible {
+        opacity: 1;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <pre class="poem">
+<span id="parentheses" class="visible">( <span id="inmission" class="visible">I N <span id="ter" class="visible">T E R</span> M I S S I O N</span> )</span>
+    </pre>
+    <p id="continue" class="continue">continue? y/n</p>
+    
+    <script>
+      const duration = 10 * 1000; // 10 seconds in milliseconds
+      let start = Date.now(); // time of opening document
+      
+      // gradually phase out each element
+      let timer = setInterval(() => {
+        let timePassed = Date.now() - start; // difference between new current time and original start time
+        
+        if (timePassed >= duration && timePassed < duration * 2) {
+          // 10 to 20 seconds
+          document.getElementById("ter").classList.remove("visible");
+        } else if (timePassed >= duration * 3 && timePassed < duration * 4) {
+          // 30 to 40 seconds
+          document.getElementById("inmission").classList.remove("visible");
+        } else if (timePassed >= duration * 5 && timePassed < duration * 6) {
+          // 50 to 60 seconds
+          document.getElementById("parentheses").classList.remove("visible");
+        } else if (timePassed >= duration * 6) {
+          // 60 seconds
+          document.getElementById("continue").classList.add("visible");
+          document.addEventListener("keydown", handleKeyDown);
+          clearInterval(timer);
+          return;
+        }
+      }, 20);
+      
+      // listen for user pressing y or n
+      function handleKeyDown(event) {
+        if (event.key == "y") {
+          window.close();
+        }
+      }
+    </script>
+    
+  </body>
+</html>

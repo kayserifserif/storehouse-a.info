@@ -1,0 +1,14 @@
+// RING
+// Visual, animation reference: https://en.wikipedia.org/wiki/Circular_buffer#/media/File:Circular_Buffer_Animation.gif
+// Words to appear in the circular motion, replacing in clockwise motion
+
+just a moment please
+waking from sleep mode
+buffering breathing patterns
+converting unconscious
+converting subconscious
+consolidating conscious
+loading logic
+accessing operation systems
+copying from secondary memory
+pasting in primary memory

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>information – s.che</title>
+    
+    <link rel="canonical" href="https://storehouse-a.info/poems/information.html" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info | information – s.che" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/poems/information.html" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+      html {
+        height: 100%;
+      }
+      
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Menlo", monospace;
+        font-size: 15px;
+      }
+      
+      .poem {
+        text-align: center;
+        white-space: pre-line;
+      }
+      
+      .welcome {
+        visibility: hidden;
+      }
+      
+      .line {
+        visibility: hidden;
+      }
+      
+      .visible {
+        visibility: visible;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <pre class="poem">
+      <span id="welcome" class="welcome">welcome to the</span>
+      
+      
+      
+      
+      <span class="line">in</span>
+      <span class="line">formation</span>
+      <span class="line">in_formation</span>
+      <span class="line">in_for_mat_ion</span>
+      <span class="line">in_form_at_i_on</span>
+      <span class="line">i_nf_or_ma_ti_on</span>
+      <span class="line">in_fo_rm_at_i_ion</span>
+      <span class="line">in_f_or_m_at_ion</span>
+      <span class="line">in_for_ma_tion</span>
+      <span class="line">info_r_mation</span>
+      <span class="line">information</span>
+      <span class="line">centre</span>
+      
+      
+      
+      
+      <span class="prompt">obtain information?<br>y/n</span>
+    </pre>
+    
+    <script>
+      const lines = document.getElementsByClassName("line");
+      const welcome = document.getElementById("welcome");
+      const showSource = document.getElementById("showSource");
+      
+      let counter = 0;
+      document.addEventListener("keydown", event => {
+        if (event.key == "y") {
+          event.preventDefault();
+          if (counter < lines.length) {
+            lines[counter].classList.add("visible");
+            counter++;
+          } else {
+            welcome.classList.add("visible");
+          }
+        }
+      });
+    </script>
+    
+  </body>
+</html>

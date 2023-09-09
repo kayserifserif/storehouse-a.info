@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>brush – s.che</title>
+    
+    <link rel="canonical" href="https://storehouse-a.info/poems/brush.html" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info | brush – s.che" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/poems/brush.html" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+    
+    <style>
+      html {
+        height: 100%;
+      }
+      
+      body {
+        height: 200%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        font-family: "Menlo", monospace;
+        font-size: 13px;
+      }
+      
+      .poem {
+        position: fixed;
+        text-align: center;
+        white-space: pre-line;
+      }
+      
+      .line {
+        visibility: hidden;
+      }
+      
+      .visible {
+        visibility: visible;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <pre class="poem">
+    
+    
+      <span class="line">by</span>
+      <span class="line">the</span>
+      <span class="line">bristle</span>
+      <span class="line">of</span>
+      <span class="line">y</span>
+      <span class="line">our</span>
+      <span class="line">finger</span>
+      <span class="line">tips</span>
+      <span class="line">what</span>
+      <span class="line">do</span>
+      <span class="line">you</span>
+      <span class="line">un</span>
+      <span class="line">earth</span>
+      <span class="line">here</span>
+      <span class="line">?</span>
+      <span class="line">b</span>
+      <span class="line">rushing</span>
+      <span class="line">a</span>
+      <span class="line">way</span>
+      <span class="line">at</span>
+      <span class="line">the</span>
+      <span class="line">sand</span>
+      <span class="line">and</span>
+      <span class="line">soil</span>
+      <span class="line">?</span>
+      <span class="line">fragments</span>
+      <span class="line">form</span>
+      <span class="line">like</span>
+      <span class="line">figments</span>
+      <span class="line">form</span>
+      <span class="line">like</span>
+      <span class="line">figurative</span>
+      <span class="line">language</span>
+      <span class="line">?</span>
+      <span class="line">a</span>
+      <span class="line">dis</span>
+      <span class="line">placed</span>
+      <span class="line">destiny</span>
+      <span class="line">dusted</span>
+      <span class="line">in</span>
+      <span class="line">un</span>
+      <span class="line">chronic</span>
+      <span class="line">led</span>
+      <span class="line">chronology</span>
+      <span class="line">?</span>
+    </pre>
+    
+    <script>
+      let lines = document.querySelectorAll(".line");
+      let counter = 0;
+      
+      // https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
+      let isScrolling = null;
+      window.addEventListener("scroll", () => {
+        event.preventDefault();
+        window.scroll(0, 0);
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          if (counter < lines.length) {
+            lines[counter].classList.add("visible");
+            counter++;
+          }
+        }, 50);
+      });
+    </script>
+    
+  </body>
+</html>

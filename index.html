@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Storehouse-A.info</title>
+
+    <link rel="canonical" href="https://storehouse-a.info/" />
+    <meta name="description" content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Storehouse-A.info" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://storehouse-a.info/" />
+    <meta
+      property="og:description"
+      content="A text and typography-based virtual exhibition showcasing interactive visual poetry inspired by the lexicon of NetHack."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/4790bb7a-7390-495d-8b97-d01f2ef4da55%2Fbuffer_ring.gif?v=1622088943907"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    
+    <div class="wrapper">
+      
+      <div id="welcome" class="welcome">
+        <h1>Storehouse-A.info</h1>
+        <p>Welcome, visitor. Please enter a username.</p>
+        <form id="userInput">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" />
+          <button type="submit">Enter</button>
+        </form>
+      </div>
+
+      <div id="log" class="log hidden">
+        <h2><span id="usernameVal"></span>.Log</h2>
+        <p id="logText"></p>
+      </div>
+
+      <!-- this will be filled in by the javascript -->
+      <pre id="space" class="space hidden"></pre>
+      
+      <div id="inventory" class="inventory hidden">
+        <p id="inventoryItems"></p>
+      </div>
+      
+      <div id="legend" class="legend hidden">
+        <h2>Legend</h2>
+        <p>( -- tool</p>
+        <p>* -- gem</p>
+        <p>? -- scroll</p>
+        <p>/ -- wand</p>
+        <p>! -- potion</p>
+        <p>+ -- spell book</p>
+        <p>= -- ring</p>
+        <p>&gt; -- stairs going down</p>
+      </div>
+
+      <div id="viewer" class="viewer hidden">
+        <p>You see here a <span id="item"></span>:</p>
+        <p>
+          <span class="symbol"></span> <b><span id="work"></span></b> <span class="symbol"></span>
+        </p>
+        <p>Inspect? y/n</p>
+      </div>
+      
+    </div> <!-- end wrapper -->
+    
+    <div class="links">
+      <nav>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+    
+  </body>
+</html>

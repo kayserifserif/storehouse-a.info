@@ -1,0 +1,26 @@
+// POTION
+// Everytime the user holds and shakes- the letters become jumbled/re-arranged (retaining bottle shape).
+// extra if possible: once the user clicks on the shape (holds the bottle) all letters become '!'
+// if user doesn't shake the bottle the letters remain where they were.
+
+
+        
+                    
+                    
+                        Pepper
+                        pearls
+                      nightsHade
+                         aloes
+                        wIllow
+                        fenneL
+                    pansies necTar
+                    ambergris sage
+                       mandRakes
+                       liquoricE
+                       cinnamon
+                       
+                       
+                       
+          reminder: shake well before using.
+          
+                       

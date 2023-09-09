@@ -1,0 +1,39 @@
+// POETIC TOOL
+// font-size: 18px
+//first 10 seconds (1-10s)
+
+
+     ( I N T E R M I S S I O N )
+     
+     
+// next 10 seconds 'TER' Fades (11-20s)
+
+//next 10 seconds (21s-30s) staying on '(IN MISSION)'
+
+
+
+     ( I N      M I S S I O N )
+     
+     
+//next 10 seconds '(IN MISSION)' Fades (31-40s)
+//next 10 seconds (41-50s) staying on '(         )'
+
+
+
+    (                         )
+    
+    
+    
+//next 10 seconds '(          )' Fades (51-60s)
+// at 60s:
+
+
+
+           continue? y/n
+           
+           
+           
+           
+// pop-up window closes when user types 'y', nothing happens when 'n'
+     
+

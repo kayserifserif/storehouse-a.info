@@ -1,0 +1,115 @@
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Menlo", monospace;
+  font-size: 14px;
+}
+
+/* Styles */
+
+.wrapper {
+  width: 90%;
+  height: calc(100vh - 4em);
+  margin: 2em auto;
+  display: grid;
+  grid-template-rows: 90% 10%;
+  grid-template-columns: 15% 70% 15%;
+}
+
+.welcome {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.log {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+  height: 100%;
+  overflow: scroll;
+}
+
+.arrow {
+  opacity: 0.2;
+}
+
+.space {
+  grid-row: 1;
+  grid-column: 2;
+  width: max-content;
+  align-self: center;
+  justify-self: center;
+  font-size: 1.2em;
+}
+
+.inventory {
+  grid-row: 2;
+  grid-column: 2;
+  align-self: start;
+  justify-self: center;
+  text-align: center;
+}
+
+.item {
+  opacity: 0.1;
+  transition: 0.5s opacity;
+}
+
+.item--collected {
+  opacity: 1;
+}
+
+.legend {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.viewer {
+  grid-row: 1;
+  grid-column: 3;
+  align-self: center;
+}
+
+.welcome,
+.log,
+.space,
+.inventory,
+.legend,
+.viewer {
+  opacity: 1;
+  transition: 0.5s opacity;
+}
+
+.links {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.links nav {
+  display: flex;
+  gap: 1em;
+}
+
+.source {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  opacity: 0.5;
+  white-space: pre-wrap;
+  column-count: 3;
+  transition: 0.5s opacity;
+}
+
+.hidden {
+  opacity: 0;
+}
