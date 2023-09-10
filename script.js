@@ -44,6 +44,12 @@ let isInGame = false; // if the game has started
 let hasFoundItem = false; // if the player is interacting with an item
 let playerItems = [];
 
+const TRANSITION_MS = 500;
+const POPUP_TOP = 120;
+const POPUP_LEFT = 400;
+const POPUP_WIDTH = 800;
+const POPUP_HEIGHT = 800;
+
 // FUNCTIONS
 
 // (almost) everything in one variable so it can be slotted in the source code at the end
@@ -97,16 +103,16 @@ const storehouse = function() {
     // prevent reload
     event.preventDefault();
     // get value of input
-    username = event.target[0].value;
+    username = event.target.username.value;
     // {Username}.Log
     document.getElementById("usernameVal").textContent = username;
     // add first action to log
     addToLog(`You enter the storehouse.`);
     // hide form
     welcome.classList.add("invisible");
-    setTimeout(() => {
+    welcome.addEventListener("transitionend", () => {
       welcome.classList.add("hidden");
-    }, 500);
+    });
     setTimeout(() => {
       // show intro text
       log.classList.remove("invisible");
@@ -117,10 +123,11 @@ const storehouse = function() {
           space.classList.remove("invisible");
         }, 50);
         setTimeout(() => {
-          // show inventory
-          inventory.classList.remove("invisible");
+          // show legend
+          legend.classList.remove("invisible");
           setTimeout(() => {
-            legend.classList.remove("invisible");
+            // show inventory
+            inventory.classList.remove("invisible");
           }, 200);
         }, 200);
       }, 500);
@@ -209,7 +216,9 @@ const storehouse = function() {
           let poem = poems[playerX + "," + playerY];
           addToLog(`You inspect ${poem[1]}.`);
           // open poem in a popup window
-          let newWindow = window.open(poem[2], poem[0], "menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes,top=120,left=400,width=800,height=800");
+          let features = "menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes" +
+            `top=${POPUP_TOP},left=${POPUP_LEFT},width=${POPUP_WIDTH},height=${POPUP_HEIGHT}`;
+          let newWindow = window.open(poem[2], poem[0], features);
           newWindow.focus();
           // hide viewer
           viewer.classList.add("invisible");
@@ -260,47 +269,47 @@ const storehouse = function() {
   function findItem(targetCell) {
     if (targetCell === ">") {
       concludeVisit();
-    } else {
-      let itemName = items[targetCell];
-      let coords = playerX + "," + playerY;
+      return;
+    }
+    
+    let itemName = items[targetCell];
+    let coords = playerX + "," + playerY;
 
-      if (itemName) {
-        let poem = poems[coords];
-        let workTitle = poem[1];
-        let symbol = poem[3];
+    if (itemName) {
+      let poem = poems[coords];
+      let workTitle = poem[1];
+      let symbol = poem[3];
 
-        if (poem) {
-          hasFoundItem = true;
-          if (itemName[0] === "a") {
-            addToLog(`You find an ${itemName}.`);
-          } else {
-            addToLog(`You find a ${itemName}.`);
-          }
-          viewer.querySelector("#item").innerText = itemName;
-          viewer.querySelector("#work").innerText = workTitle;
-          viewer.querySelectorAll(".symbol").forEach(span => span.innerText = symbol);
-          viewer.classList.remove("invisible");
+      if (poem) {
+        hasFoundItem = true;
+        if (itemName[0] === "a") {
+          addToLog(`You find an ${itemName}.`);
+        } else {
+          addToLog(`You find a ${itemName}.`);
         }
+        viewer.querySelector("#item").innerText = itemName;
+        viewer.querySelector("#work").innerText = workTitle;
+        viewer.querySelectorAll(".symbol").forEach(span => span.innerText = symbol);
+        viewer.classList.remove("invisible");
       }
     }
   }
 
   function collectItem(x, y) {
     let coordStr = x + "," + y;
-    if (playerItems.indexOf(coordStr) === -1) {
-      playerItems.push(coordStr);
-      let symbol = mapFull[y][x];
-      let name = items[symbol].replace(" ", "");
-      let item = inventoryItems.querySelectorAll("." + name + ":not(.item--collected)")[0];
-      item.classList.add("item--collected");
-      if (playerItems.length === Object.keys(poems).length) {
-        revealSteps();
-      }
+    if (playerItems.indexOf(coordStr) !== -1) return;
+
+    playerItems.push(coordStr);
+    let symbol = mapFull[y][x];
+    let name = items[symbol].replace(" ", "");
+    let item = inventoryItems.querySelectorAll("." + name + ":not(.item--collected)")[0];
+    item.classList.add("item--collected");
+    if (playerItems.length === Object.keys(poems).length) {
+      revealSteps();
     }
   }
 
   function revealSteps() {
-    // exit.classList.remove("invisible");
     mapFull[20][37] = ">";
     mapVisible[20][37] = ">";
     addToLog("You find stairs going down.");
@@ -408,21 +417,13 @@ function concludeVisit() {
   // print javascript
   source.innerText += "\n\n" + storehouse.toString();
   document.body.appendChild(source);
-  viewer.classList.add("invisible");
+  
   // fade transition elements
-  setTimeout(() => {
-    log.classList.add("invisible");
-    setTimeout(() => {
-      inventory.classList.add("invisible");
-      setTimeout(() => {
-        space.classList.add("invisible");
-        setTimeout(() => {
-          legend.classList.add("invisible");
-          setTimeout(() => {
-            source.classList.remove("invisible");
-          }, 500);
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 500);
+  const elementsToFade = [viewer, log, legend, inventory, space];
+  let time = 0;
+  elementsToFade.forEach(el => {
+    setTimeout(() => el.classList.add("invisible"), time);
+    time += TRANSITION_MS;
+  });
+  setTimeout(() => source.classList.remove("invisible"), time);
 }
