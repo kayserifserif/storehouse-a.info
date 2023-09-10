@@ -25,15 +25,15 @@ Katherine Yang & Steffi Che
   Daedalus himself barely escaped because it was so well made.
   Theseus was able to retrace his path with a ball of thread.
 
-  > > Is the visitor the hero or the monster?
-  > > Are the artists/makers of this exhibition like the artificer who barely escapes from his own labryinth?
-  > > Can the narrative/log be likened to the thread that allowed Theseus to navigate the maze?
+  - Is the visitor the hero or the monster?
+  - Are the artists/makers of this exhibition like the artificer who barely escapes from his own labryinth?
+  - Can the narrative/log be likened to the thread that allowed Theseus to navigate the maze?
   
 - Dungeons are rooms/cells in which prisoners are held, usually/generally associated with Medieval castles.
 
-  > > Clash/chemistry/re-contextualisation between Medieval fantasy, Contemporary reality and Futuristic fantasy?
-  > > i.e. What would a spell book be in the present? A dictionary? A server with stored information?
-  > > Perhaps a wand would be a password reset tool? Or a decoder?
+  - Clash/chemistry/re-contextualisation between Medieval fantasy, Contemporary reality and Futuristic fantasy?
+  - i.e. What would a spell book be in the present? A dictionary? A server with stored information?
+  - Perhaps a wand would be a password reset tool? Or a decoder?
 
 ## Works (new/'reworked from existing')
 
@@ -78,24 +78,14 @@ http://www.generative-gestaltung.de/2/
 
 ## Research links
 
-"https://www.google.com/search?q=nethack&rlz=1C5CHFA_enHK895HK895&sxsrf=ALeKk00x18XK2MnETbQJNuQ33GxvyEzwgA:1621068113996&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjZl92opcvwAhW5IqYKHfWvAA8Q_AUoAXoECAIQBA&biw=1792&bih=1018
-http://www.katygero.com/poetry-experiments/
-https://products.minguhongmfg.com/river-typography/
-http://the-flow-of-time.glitch.me/
-https://blackout-poetry-tool.github.io/
-https://secretsecret.glitch.me/
-https://www.nethack.org/common/index.html
-https://inverse.website
-https://en.wikipedia.org/wiki/Constrained_writing
-https://thefutureofmemory.online/hanzi-maker/
-http://faculty.ndhu.edu.tw/~chenli/visualpoems.htmq=nethack&rlz=1C5CHFA_enHK895HK895&sxsrf=ALeKk00x18XK2MnETbQJNuQ33GxvyEzwgA:1621068113996&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjZl92opcvwAhW5IqYKHfWvAA8Q_AUoAXoECAIQBA&biw=1792&bih=1018"											
-											
-											
-											
-											
-											
-											
-											
-											
-											
-											
+- https://www.google.com/search?q=nethack&rlz=1C5CHFA_enHK895HK895&sxsrf=ALeKk00x18XK2MnETbQJNuQ33GxvyEzwgA:1621068113996&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjZl92opcvwAhW5IqYKHfWvAA8Q_AUoAXoECAIQBA&biw=1792&bih=1018
+- http://www.katygero.com/poetry-experiments/
+- https://products.minguhongmfg.com/river-typography/
+- http://the-flow-of-time.glitch.me/
+- https://blackout-poetry-tool.github.io/
+- https://secretsecret.glitch.me/
+- https://www.nethack.org/common/index.html
+- https://inverse.website
+- https://en.wikipedia.org/wiki/Constrained_writing
+- https://thefutureofmemory.online/hanzi-maker/
+- http://faculty.ndhu.edu.tw/~chenli/visualpoems.htmq=nethack&rlz=1C5CHFA_enHK895HK895&sxsrf=ALeKk00x18XK2MnETbQJNuQ33GxvyEzwgA:1621068113996&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjZl92opcvwAhW5IqYKHfWvAA8Q_AUoAXoECAIQBA&biw=1792&bih=1018
