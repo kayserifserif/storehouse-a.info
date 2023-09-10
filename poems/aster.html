@@ -32,7 +32,8 @@
         height: 100%;
         margin: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-evenly;
         align-items: center;
         font-family: "Menlo", monospace;
       }
@@ -44,6 +45,20 @@
       
       span {
         white-space: pre;
+      }
+
+      .time {
+        font-size: 12px;
+      }
+
+      .invisible {
+        opacity: 0;
+      }
+
+      .close-button {
+        display: block;
+        margin: 0 auto;
+        transition: 0.5s opacity;
       }
     </style>
     
@@ -72,16 +87,28 @@
 <span class="text">Jorge Luis Borges</span>
 <i><span class="text">The House of </span>*<span class="text">sterion</span></i>
     </pre>
+
+    <div class="time"></div>
+
+    <button type="button" class="close-button invisible">Close window</button>
     
     <script>
       const texts = document.getElementsByClassName("text");
       const HOURINMINUTES = 60;
       const MAXMINUTES = 12 * HOURINMINUTES;
       const MAXCOLOR = 255;
+
+      const timeHtml = document.querySelector(".time");
+
+      const closeButton = document.querySelector(".close-button");
+      closeButton.addEventListener("click", () => window.close());
+      setTimeout(() => closeButton.classList.remove("invisible"), 2000);
       
       // updates color of text depending on time of day
       function updateColor() {
         let time = new Date();
+        timeHtml.innerText = `${time.getHours()}:${time.getMinutes().toString().padStart(2, "0")}`;
+
         let minuteOfDay = time.getHours() * HOURINMINUTES + time.getMinutes();
         let color;
         if (minuteOfDay <= MAXMINUTES) {
