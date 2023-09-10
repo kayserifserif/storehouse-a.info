@@ -122,4 +122,5 @@ button {
   white-space: pre-wrap;
   column-count: 3;
   transition: 0.5s opacity;
+  overflow-wrap: break-word;
 }
