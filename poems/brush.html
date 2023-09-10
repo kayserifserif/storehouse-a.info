@@ -55,8 +55,6 @@
   </head>
   <body>
     <pre class="poem">
-    
-    
       <span class="line">by</span>
       <span class="line">the</span>
       <span class="line">bristle</span>
@@ -105,6 +103,8 @@
     </pre>
     
     <script>
+      const SCROLL_DELAY = 20;
+
       let lines = document.querySelectorAll(".line");
       let counter = 0;
       
@@ -119,7 +119,7 @@
             lines[counter].classList.add("visible");
             counter++;
           }
-        }, 50);
+        }, SCROLL_DELAY);
       });
     </script>
     
