@@ -46,13 +46,14 @@ let playerItems = [];
 
 // FUNCTIONS
 
+// (almost) everything in one variable so it can be slotted in the source code at the end
 const storehouse = function() {
   
   document.addEventListener("DOMContentLoaded", init);
   
-  // sets everything up
+  // set everything up
   function init() {
-    space.style.display = "none";
+    space.classList.add("hidden");
     document.getElementById("userInput").addEventListener("submit", handleUsernameInput);
     createInventory();
     // fill in map from text file
@@ -102,24 +103,24 @@ const storehouse = function() {
     // add first action to log
     addToLog(`You enter the storehouse.`);
     // hide form
-    welcome.classList.add("hidden");
+    welcome.classList.add("invisible");
     setTimeout(() => {
-      welcome.style.display = "none"
+      welcome.classList.add("hidden");
     }, 500);
     setTimeout(() => {
       // show intro text
-      log.classList.remove("hidden");
+      log.classList.remove("invisible");
       setTimeout(() => {
-        space.style.display = "block";
+        space.classList.remove("hidden");
         setTimeout(() => {
           // show space
-          space.classList.remove("hidden");
+          space.classList.remove("invisible");
         }, 50);
         setTimeout(() => {
           // show inventory
-          inventory.classList.remove("hidden");
+          inventory.classList.remove("invisible");
           setTimeout(() => {
-            legend.classList.remove("hidden");
+            legend.classList.remove("invisible");
           }, 200);
         }, 200);
       }, 500);
@@ -128,127 +129,122 @@ const storehouse = function() {
 
   // handles key presses, including arrow keys and y/n
   function handleKeyDown(event) {
+    if (!isInGame) return;
+
     // when the user presses a key, event.key stores which key was pressed
     // this block of code switches between different possibilities
-    let newAction;
     let newX, newY, targetCell;
     let currentCell = mapFull[playerY][playerX];
     switch (event.key) {
         
-      case "ArrowLeft":
-        if (isInGame) {
-          event.preventDefault();
-          newX = playerX - 1;
-          // check what the target Cell is
-          targetCell = mapFull[playerY][newX];
-          if (newX >= 0 && // if it's not past the edge
-              targetCell != " " && // if it's not blank space
-              targetCell != "|" && // if it's not a vertical wall
-              targetCell != "-") { // if it's not a horizontal wall
-            playerX = newX; // then ok to move!
-          }
-          revealCell(playerX, playerY);
-          // update map with new player location
-          updateMap();
+      case "ArrowLeft": {
+        event.preventDefault();
+        newX = playerX - 1;
+        // check what the target Cell is
+        targetCell = mapFull[playerY][newX];
+        if (newX >= 0 && // if it's not past the edge
+            targetCell !== " " && // if it's not blank space
+            targetCell !== "|" && // if it's not a vertical wall
+            targetCell !== "-") { // if it's not a horizontal wall
+          playerX = newX; // then ok to move!
           addToLog("←");
         }
+        revealCell(playerX, playerY);
+        // update map with new player location
+        updateMap();
+      }
         break;
         
-      case "ArrowRight":
-        if (isInGame) {
-          event.preventDefault();
-          newX = playerX + 1;
-          targetCell = mapFull[playerY][newX];
-          if (newX <= mapFull[0].length - 1 &&
-              targetCell != " " &&
-              targetCell != "|" &&
-              targetCell != "-") {
-            playerX = newX;
-          }
-          revealCell(playerX, playerY);
-          updateMap();
+      case "ArrowRight": {
+        event.preventDefault();
+        newX = playerX + 1;
+        targetCell = mapFull[playerY][newX];
+        if (newX <= mapFull[0].length - 1 &&
+            targetCell !== " " &&
+            targetCell !== "|" &&
+            targetCell !== "-") {
+          playerX = newX;
           addToLog("→");
         }
+        revealCell(playerX, playerY);
+        updateMap();
+      }
         break;
         
-      case "ArrowUp":
-        if (isInGame) {
-          event.preventDefault();
-          newY = playerY - 1;
-          targetCell = mapFull[newY][playerX];
-          if (newY >= 0  &&
-              targetCell != " " &&
-              targetCell != "-" &&
-              targetCell != "|") {
-            playerY = newY;
-          }
-          revealCell(playerX, playerY);
-          updateMap();
+      case "ArrowUp": {
+        event.preventDefault();
+        newY = playerY - 1;
+        targetCell = mapFull[newY][playerX];
+        if (newY >= 0  &&
+            targetCell !== " " &&
+            targetCell !== "-" &&
+            targetCell !== "|") {
+          playerY = newY;
           addToLog("↑");
         }
-        break;
+        revealCell(playerX, playerY);
+        updateMap();
+      }
+      break;
         
-      case "ArrowDown":
-        if (isInGame) {
-          event.preventDefault();
-          newY = playerY + 1;
-          targetCell = mapFull[newY][playerX];
-          if (newY <= mapFull.length - 1 &&
-              targetCell != " " &&
-              targetCell != "-" &&
-              targetCell != "|") {
-            playerY = newY;
-          }
-          revealCell(playerX, playerY);
-          updateMap();
+      case "ArrowDown": {
+        event.preventDefault();
+        newY = playerY + 1;
+        targetCell = mapFull[newY][playerX];
+        if (newY <= mapFull.length - 1 &&
+            targetCell !== " " &&
+            targetCell !== "-" &&
+            targetCell !== "|") {
+          playerY = newY;
           addToLog("↓");
         }
-        break;
+        revealCell(playerX, playerY);
+        updateMap();
+      }
+      break;
         
-      case "y":
-        if (isInGame) {
-          if (hasFoundItem) {
-            event.preventDefault();
-            let poem = poems[playerX + "," + playerY];
-            addToLog(`You inspect ${poem[1]}.`);
-            // open poem in a popup window
-            let newWindow = window.open(poem[2], poem[0], "menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes,top=120,left=400,width=800,height=800");
-            newWindow.focus();
-            // hide viewer
-            viewer.classList.add("hidden");
-            hasFoundItem = false;
-            
-            collectItem(playerX, playerY);
-          }
+      case "y": {
+        if (hasFoundItem) {
+          event.preventDefault();
+          let poem = poems[playerX + "," + playerY];
+          addToLog(`You inspect ${poem[1]}.`);
+          // open poem in a popup window
+          let newWindow = window.open(poem[2], poem[0], "menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes,top=120,left=400,width=800,height=800");
+          newWindow.focus();
+          // hide viewer
+          viewer.classList.add("invisible");
+          hasFoundItem = false;
+          
+          collectItem(playerX, playerY);
         }
-        break;
+      }
+      break;
         
-      case "n":
-        if (isInGame) {
-          if (hasFoundItem) {
-            event.preventDefault();
-            // hide viewer
-            viewer.classList.add("hidden");
-            hasFoundItem = false;
-          }
+      case "n": {
+        if (hasFoundItem) {
+          event.preventDefault();
+          // hide viewer
+          viewer.classList.add("invisible");
+          hasFoundItem = false;
         }
-        break;
-        
+      }
+      break;
+
     }
 
-    if (currentCell == "." && targetCell == "#") {
+    if (currentCell === "." && targetCell === "#") {
       // leaving a room
       leaveRoom();
-    } else if (currentCell == "#" && targetCell == ".") {
+    } else if (currentCell === "#" && targetCell === ".") {
       // entering a room
       enterRoom();
-    } else if (targetCell && targetCell != "." && targetCell != "#") {
+    } else if (targetCell && targetCell !== "." && targetCell !== "#") {
       // inspecting an item
       findItem(targetCell);
-    } else if (currentCell != "." && currentCell != "#" && (targetCell == "." || targetCell == "#")) {
+    } else if (currentCell !== "." && currentCell !== "#" && (targetCell === "." || targetCell === "#")) {
       // moving away from item
       hasFoundItem = false;
-      viewer.classList.add("hidden");
+      viewer.classList.add("invisible");
     }
 
   }
@@ -262,7 +258,7 @@ const storehouse = function() {
   }
 
   function findItem(targetCell) {
-    if (targetCell == ">") {
+    if (targetCell === ">") {
       concludeVisit();
     } else {
       let itemName = items[targetCell];
@@ -275,7 +271,7 @@ const storehouse = function() {
 
         if (poem) {
           hasFoundItem = true;
-          if (itemName[0] == "a") {
+          if (itemName[0] === "a") {
             addToLog(`You find an ${itemName}.`);
           } else {
             addToLog(`You find a ${itemName}.`);
@@ -283,7 +279,7 @@ const storehouse = function() {
           viewer.querySelector("#item").innerText = itemName;
           viewer.querySelector("#work").innerText = workTitle;
           viewer.querySelectorAll(".symbol").forEach(span => span.innerText = symbol);
-          viewer.classList.remove("hidden");
+          viewer.classList.remove("invisible");
         }
       }
     }
@@ -291,20 +287,24 @@ const storehouse = function() {
 
   function collectItem(x, y) {
     let coordStr = x + "," + y;
-    if (playerItems.indexOf(coordStr) == -1) {
+    if (playerItems.indexOf(coordStr) === -1) {
       playerItems.push(coordStr);
       let symbol = mapFull[y][x];
       let name = items[symbol].replace(" ", "");
       let item = inventoryItems.querySelectorAll("." + name + ":not(.item--collected)")[0];
       item.classList.add("item--collected");
-      if (playerItems.length == Object.keys(poems).length) {
-        // exit.classList.remove("hidden");
-        mapFull[20][37] = ">";
-        mapVisible[20][37] = ">";
-        addToLog("You find stairs going down.");
-        updateMap();
+      if (playerItems.length === Object.keys(poems).length) {
+        revealSteps();
       }
     }
+  }
+
+  function revealSteps() {
+    // exit.classList.remove("invisible");
+    mapFull[20][37] = ">";
+    mapVisible[20][37] = ">";
+    addToLog("You find stairs going down.");
+    updateMap();
   }
 
   function revealCell(x, y) {
@@ -352,13 +352,13 @@ const storehouse = function() {
 
   // adds a given text to the log
   function addToLog(actionText) {
-    if (actionText.length == 1) {
+    if (actionText.length === 1) {
       let span = document.createElement("span");
       span.classList.add("arrow");
       span.textContent = actionText;
       log.children[log.children.length - 1].innerHTML += span.outerHTML + " ";
     } else {
-      if (actions[actions.length - 1] != actionText) {
+      if (actions[actions.length - 1] !== actionText) {
         // let newAction = document.createElement("p");
         // newAction.innerText = actionText;
         // log.appendChild(newAction);
@@ -378,7 +378,7 @@ const storehouse = function() {
   function updateMap() {
     // clone map for display
     let mapText = [];
-    // for (let row of mapFull) {
+    // for (let row of mapFull) { // DEBUG
     for (let row of mapVisible) {
       let rowClone = [];
       for (let cell of row) {
@@ -402,24 +402,24 @@ storehouse();
 function concludeVisit() {
   let source = document.createElement("pre");
   source.id = "source";
-  source.classList.add("source", "hidden");
+  source.classList.add("source", "invisible");
   // print html
   source.innerText = document.body.innerHTML;
   // print javascript
   source.innerText += "\n\n" + storehouse.toString();
   document.body.appendChild(source);
-  viewer.classList.add("hidden");
+  viewer.classList.add("invisible");
   // fade transition elements
   setTimeout(() => {
-    log.classList.add("hidden");
+    log.classList.add("invisible");
     setTimeout(() => {
-      inventory.classList.add("hidden");
+      inventory.classList.add("invisible");
       setTimeout(() => {
-        space.classList.add("hidden");
+        space.classList.add("invisible");
         setTimeout(() => {
-          legend.classList.add("hidden");
+          legend.classList.add("invisible");
           setTimeout(() => {
-            source.classList.remove("hidden");
+            source.classList.remove("invisible");
           }, 500);
         }, 500);
       }, 500);
