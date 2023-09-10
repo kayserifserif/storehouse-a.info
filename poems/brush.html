@@ -25,20 +25,20 @@
     
     <style>
       html {
-        height: 100%;
+        height: 100vh;
       }
       
       body {
-        height: 200%;
+        height: 200vh;
         margin: 0;
-        display: flex;
-        justify-content: center;
         font-family: "Menlo", monospace;
         font-size: 13px;
       }
       
       .poem {
         position: fixed;
+        left: 0;
+        right: 0;
         text-align: center;
         white-space: pre-line;
       }
@@ -49,6 +49,20 @@
       
       .visible {
         visibility: visible;
+      }
+
+      .close-button {
+        position: fixed;
+        bottom: 1em;
+        left: 0;
+        right: 0;
+        display: block;
+        margin: auto;
+        transition: 0.5s opacity;
+      }
+
+      .invisible {
+        opacity: 0;
       }
     </style>
     
@@ -101,16 +115,25 @@
       <span class="line">chronology</span>
       <span class="line">?</span>
     </pre>
+
+    <button type="button" class="close-button invisible">Close window</button>
     
     <script>
       const SCROLL_DELAY = 20;
+      // const SCROLL_DELAY = 10; // DEBUG
+
+      let isComplete = false;
+      const closeButton = document.querySelector(".close-button");
+      closeButton.addEventListener("click", () => window.close());
 
       let lines = document.querySelectorAll(".line");
       let counter = 0;
       
       // https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
       let isScrolling = null;
-      window.addEventListener("scroll", () => {
+      window.addEventListener("scroll", handleScroll);
+
+      function handleScroll() {
         event.preventDefault();
         window.scroll(0, 0);
         window.clearTimeout(isScrolling);
@@ -118,9 +141,17 @@
           if (counter < lines.length) {
             lines[counter].classList.add("visible");
             counter++;
+
+            if (counter === lines.length) {
+              complete();
+            }
           }
         }, SCROLL_DELAY);
-      });
+      }
+
+      function complete() {
+        closeButton.classList.remove("invisible");
+      }
     </script>
     
   </body>
