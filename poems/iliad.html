@@ -32,7 +32,8 @@
         height: 100%;
         margin: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-evenly;
         align-items: center;
         font-family: "Menlo", monospace;
         font-size: 13px;
@@ -50,13 +51,21 @@
       .visible {
         opacity: 1;
       }
+
+      .invisible {
+        opacity: 0;
+      }
+
+      .close-button {
+        display: block;
+        margin: 0 auto;
+        transition: 0.5s opacity;
+      }
     </style>
     
   </head>
   <body>
     <pre class="poem">
-    
-    
                                    <span class="text">h</span>
                                    <span class="text">e</span>
  <span class="text">w</span>                                 <span class="text">se</span>            
@@ -97,17 +106,28 @@
                                                                <span class="text">k</span>
                                                                <span class="text">2</span>
                                                                <span class="text">4</span>
-    
-    
-    
     </pre>
+
+    <button type="button" class="close-button invisible">Close window</button>
     
     <script>
-      let texts = document.getElementsByClassName("text");
-      for (let text of texts) {
-        text.addEventListener("mouseenter", event => {
-          text.classList.add("visible");
-        });
+      const closeButton = document.querySelector(".close-button");
+      closeButton.addEventListener("click", () => window.close());
+
+      let texts = document.querySelectorAll(".text");
+      texts.forEach(text => text.addEventListener("mouseenter", handleMouseEnter));
+      
+      let textsVisible = [];
+      function handleMouseEnter(event) {
+        let text = event.target;
+        text.classList.add("visible");
+        if (!textsVisible.includes(text)) {
+          textsVisible.push(text);
+        }
+
+        if (textsVisible.length === texts.length) {
+          closeButton.classList.remove("invisible");
+        }
       }
     </script>
     
