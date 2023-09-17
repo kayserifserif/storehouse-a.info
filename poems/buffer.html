@@ -31,10 +31,6 @@
       body {
         height: 100%;
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
       
       .st0 {
@@ -50,6 +46,7 @@
         font-family: "Menlo", monospace;
         font-size: 20px;
         visibility: hidden;
+        opacity: 1;
       }
       
       path {
@@ -59,321 +56,388 @@
       .visible {
         visibility: visible;
       }
+
+      .invisible {
+        opacity: 0;
+      }
+
+      .close-button {
+        display: block;
+        margin: 0 auto;
+        transition: 0.5s opacity;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        right: 0;
+        transition: 0.5s opacity;
+      }
+
+      @keyframes fade {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
     </style>
     
   </head>
   <body>
     
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewbox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+   viewbox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
 
-<g id="just_a_moment_please">
-	<path class="st0" d="M400,275v125l-36.8-119.4l0,0C374.8,276.9,387.2,275,400,275z"/>
-	<path class="st0" d="M363.2,280.6L400,400l-70.4-103.3l0,0C339.8,289.7,351.1,284.2,363.2,280.6L363.2,280.6z"/>
-	<path class="st0" d="M329.6,296.7L400,400l-97.7-77.9l0,0C310,312.3,319.2,303.7,329.6,296.7L329.6,296.7z"/>
-	<path class="st0" d="M400,400l-116.4-45.7l0,0c4.6-11.7,10.9-22.6,18.6-32.3l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-124.6-9.3h0c0.9-12.7,3.8-25,8.2-36.3l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-121.9,27.8l0,0c-2-8.9-3.1-18.3-3.1-27.8c0-3.1,0.1-6.3,0.3-9.3h0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3,62.5l0,0c-6.2-10.7-10.8-22.3-13.6-34.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-85,91.6l0,0c-9.1-8.5-17-18.3-23.2-29.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-54.2,112.6l0,0c-11.3-5.5-21.7-12.6-30.8-21l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-18.6,123.6v0c-12.6-1.9-24.6-5.6-35.6-11l0,0L400,400z"/>
-	<path class="st0" d="M418.6,523.6L418.6,523.6c-6.1,0.9-12.3,1.4-18.6,1.4s-12.6-0.5-18.6-1.4v0L400,400L418.6,523.6z"/>
-	<path class="st0" d="M454.2,512.6L454.2,512.6c-11,5.4-23,9.1-35.6,11v0L400,400L454.2,512.6z"/>
-	<path class="st0" d="M485,491.6L485,491.6c-9.1,8.5-19.4,15.6-30.8,21l0,0L400,400L485,491.6z"/>
-	<path class="st0" d="M508.3,462.5L508.3,462.5c-6.2,10.9-14.1,20.7-23.2,29.2l0,0L400,400L508.3,462.5z"/>
-	<path class="st0" d="M521.9,427.8L521.9,427.8c-2.8,12.4-7.4,24-13.6,34.7l0,0L400,400L521.9,427.8z"/>
-	<path class="st0" d="M524.7,390.7c0.2,3.1,0.3,6.2,0.3,9.3c0,9.6-1.1,18.9-3.1,27.8l0,0L400,400L524.7,390.7L524.7,390.7z"/>
-	<path class="st0" d="M524.7,390.7L524.7,390.7L400,400l116.4-45.7l0,0C520.9,365.7,523.7,377.9,524.7,390.7z"/>
-	<path class="st0" d="M516.4,354.3L516.4,354.3L400,400l97.7-77.9l0,0C505.5,331.7,511.8,342.6,516.4,354.3z"/>
-	<path class="st0" d="M497.8,322L497.8,322L400,400l70.4-103.3l0,0C480.8,303.7,490,312.3,497.8,322z"/>
-	<path class="st0" d="M470.4,296.7L470.4,296.7L400,400l36.8-119.4l0,0C448.9,284.2,460.2,289.7,470.4,296.7z"/>
-	<path class="st0" d="M436.9,280.5L436.9,280.5L400,400V275C412.8,275,425.2,276.9,436.9,280.5z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9895 0.1448 -0.1448 0.9895 404.7402 305.9326)"><tspan x="0" y="0" class="st2 st3">j</tspan><tspan x="28.2" y="1.5" class="st2 st3" rotate="17.3">u</tspan><tspan x="54.5" y="11.3" class="st2 st3" rotate="34.4">s</tspan><tspan x="76.7" y="28.4" class="st2 st3" rotate="51.5">t</tspan><tspan x="93.1" y="51.3" class="st2 st3" rotate="68.8"> </tspan><tspan x="101.9" y="78.2" class="st2 st3" rotate="86.2">a</tspan><tspan x="102.3" y="106.1" class="st2 st3" rotate="103"> </tspan><tspan x="94.5" y="133.1" class="st2 st3" rotate="120.2">m</tspan><tspan x="79.1" y="156.6" class="st2 st3" rotate="137.3">o</tspan><tspan x="57.4" y="174.5" class="st2 st3" rotate="154.5">m</tspan><tspan x="31.2" y="185.3" class="st2 st3" rotate="172.1">e</tspan><tspan x="3.5" y="187.8" class="st2 st3" rotate="-171.2">n</tspan><tspan x="-24" y="182" class="st2 st3" rotate="-154">t</tspan><tspan x="-48.5" y="168.4" class="st2 st3" rotate="-136.9"> </tspan><tspan x="-68" y="148.1" class="st2 st3" rotate="-119.7">p</tspan><tspan x="-80.8" y="122.7" class="st2 st3" rotate="-102.1">l</tspan><tspan x="-85.3" y="95.3" class="st2 st3" rotate="-85.5">e</tspan><tspan x="-81.5" y="67.4" class="st2 st3" rotate="-68.2">a</tspan><tspan x="-69.7" y="41.9" class="st2 st3" rotate="-51.1">s</tspan><tspan x="-50.9" y="21" class="st2 st3" rotate="-34">e</tspan><tspan x="-26.8" y="6.6" class="st2 st3" rotate="-16.7"> </tspan></text>
+<g id="just_a_moment_please" class="ring">
+  <path class="st0" d="M400,275v125l-36.8-119.4l0,0C374.8,276.9,387.2,275,400,275z"/>
+  <path class="st0" d="M363.2,280.6L400,400l-70.4-103.3l0,0C339.8,289.7,351.1,284.2,363.2,280.6L363.2,280.6z"/>
+  <path class="st0" d="M329.6,296.7L400,400l-97.7-77.9l0,0C310,312.3,319.2,303.7,329.6,296.7L329.6,296.7z"/>
+  <path class="st0" d="M400,400l-116.4-45.7l0,0c4.6-11.7,10.9-22.6,18.6-32.3l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-124.6-9.3h0c0.9-12.7,3.8-25,8.2-36.3l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-121.9,27.8l0,0c-2-8.9-3.1-18.3-3.1-27.8c0-3.1,0.1-6.3,0.3-9.3h0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3,62.5l0,0c-6.2-10.7-10.8-22.3-13.6-34.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-85,91.6l0,0c-9.1-8.5-17-18.3-23.2-29.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-54.2,112.6l0,0c-11.3-5.5-21.7-12.6-30.8-21l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-18.6,123.6v0c-12.6-1.9-24.6-5.6-35.6-11l0,0L400,400z"/>
+  <path class="st0" d="M418.6,523.6L418.6,523.6c-6.1,0.9-12.3,1.4-18.6,1.4s-12.6-0.5-18.6-1.4v0L400,400L418.6,523.6z"/>
+  <path class="st0" d="M454.2,512.6L454.2,512.6c-11,5.4-23,9.1-35.6,11v0L400,400L454.2,512.6z"/>
+  <path class="st0" d="M485,491.6L485,491.6c-9.1,8.5-19.4,15.6-30.8,21l0,0L400,400L485,491.6z"/>
+  <path class="st0" d="M508.3,462.5L508.3,462.5c-6.2,10.9-14.1,20.7-23.2,29.2l0,0L400,400L508.3,462.5z"/>
+  <path class="st0" d="M521.9,427.8L521.9,427.8c-2.8,12.4-7.4,24-13.6,34.7l0,0L400,400L521.9,427.8z"/>
+  <path class="st0" d="M524.7,390.7c0.2,3.1,0.3,6.2,0.3,9.3c0,9.6-1.1,18.9-3.1,27.8l0,0L400,400L524.7,390.7L524.7,390.7z"/>
+  <path class="st0" d="M524.7,390.7L524.7,390.7L400,400l116.4-45.7l0,0C520.9,365.7,523.7,377.9,524.7,390.7z"/>
+  <path class="st0" d="M516.4,354.3L516.4,354.3L400,400l97.7-77.9l0,0C505.5,331.7,511.8,342.6,516.4,354.3z"/>
+  <path class="st0" d="M497.8,322L497.8,322L400,400l70.4-103.3l0,0C480.8,303.7,490,312.3,497.8,322z"/>
+  <path class="st0" d="M470.4,296.7L470.4,296.7L400,400l36.8-119.4l0,0C448.9,284.2,460.2,289.7,470.4,296.7z"/>
+  <path class="st0" d="M436.9,280.5L436.9,280.5L400,400V275C412.8,275,425.2,276.9,436.9,280.5z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9895 0.1448 -0.1448 0.9895 404.7402 305.9326)"><tspan x="0" y="0" class="st2 st3">j</tspan><tspan x="28.2" y="1.5" class="st2 st3" rotate="17.3">u</tspan><tspan x="54.5" y="11.3" class="st2 st3" rotate="34.4">s</tspan><tspan x="76.7" y="28.4" class="st2 st3" rotate="51.5">t</tspan><tspan x="93.1" y="51.3" class="st2 st3" rotate="68.8"> </tspan><tspan x="101.9" y="78.2" class="st2 st3" rotate="86.2">a</tspan><tspan x="102.3" y="106.1" class="st2 st3" rotate="103"> </tspan><tspan x="94.5" y="133.1" class="st2 st3" rotate="120.2">m</tspan><tspan x="79.1" y="156.6" class="st2 st3" rotate="137.3">o</tspan><tspan x="57.4" y="174.5" class="st2 st3" rotate="154.5">m</tspan><tspan x="31.2" y="185.3" class="st2 st3" rotate="172.1">e</tspan><tspan x="3.5" y="187.8" class="st2 st3" rotate="-171.2">n</tspan><tspan x="-24" y="182" class="st2 st3" rotate="-154">t</tspan><tspan x="-48.5" y="168.4" class="st2 st3" rotate="-136.9"> </tspan><tspan x="-68" y="148.1" class="st2 st3" rotate="-119.7">p</tspan><tspan x="-80.8" y="122.7" class="st2 st3" rotate="-102.1">l</tspan><tspan x="-85.3" y="95.3" class="st2 st3" rotate="-85.5">e</tspan><tspan x="-81.5" y="67.4" class="st2 st3" rotate="-68.2">a</tspan><tspan x="-69.7" y="41.9" class="st2 st3" rotate="-51.1">s</tspan><tspan x="-50.9" y="21" class="st2 st3" rotate="-34">e</tspan><tspan x="-26.8" y="6.6" class="st2 st3" rotate="-16.7"> </tspan></text>
 </g>
-<g id="waking_from_sleep_mode">
-	<path class="st0" d="M433.7,279.6L433.7,279.6L400,400V275C411.7,275,423,276.6,433.7,279.6z"/>
-	<path class="st0" d="M465,293.2L465,293.2L400,400l33.7-120.4l0,0C444.9,282.7,455.3,287.3,465,293.2z"/>
-	<path class="st0" d="M491.4,314.7L491.4,314.7L400,400l65-106.8l0,0C474.7,299.1,483.6,306.4,491.4,314.7z"/>
-	<path class="st0" d="M511,342.5L511,342.5L400,400l91.4-85.3l0,0C499.1,323,505.8,332.3,511,342.5z"/>
-	<path class="st0" d="M522.4,374.6L522.4,374.6L400,400l111-57.5l0,0C516.2,352.5,520.1,363.2,522.4,374.6z"/>
-	<path class="st0" d="M525,400c0,2.9-0.1,5.7-0.3,8.5h0L400,400l122.4-25.4l0,0C524.1,382.8,525,391.3,525,400z"/>
-	<path class="st0" d="M524.7,408.5L524.7,408.5c-0.8,11.6-3.1,22.8-6.9,33.4l0,0L400,400L524.7,408.5z"/>
-	<path class="st0" d="M517.8,441.9L517.8,441.9c-3.8,10.9-9.1,21-15.6,30.2l0,0L400,400L517.8,441.9z"/>
-	<path class="st0" d="M502.1,472.1L502.1,472.1c-6.6,9.3-14.4,17.7-23.2,24.9l0,0L400,400L502.1,472.1z"/>
-	<path class="st0" d="M478.9,497L478.9,497c-8.8,7.2-18.5,13.2-29.1,17.7l0,0L400,400L478.9,497z"/>
-	<path class="st0" d="M449.8,514.7L449.8,514.7c-10.3,4.5-21.3,7.6-32.8,9.2v0L400,400L449.8,514.7z"/>
-	<path class="st0" d="M417,523.8L417,523.8c-5.6,0.8-11.2,1.2-17,1.2s-11.5-0.4-17-1.2v0L400,400L417,523.8z"/>
-	<path class="st0" d="M400,400l-17,123.8v0c-11.5-1.6-22.5-4.7-32.8-9.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-49.8,114.7l0,0c-10.5-4.6-20.3-10.6-29.1-17.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-78.9,97l0,0c-8.8-7.2-16.7-15.6-23.2-24.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-102.1,72.1l0,0c-6.5-9.2-11.8-19.4-15.7-30.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-117.8,41.9l0,0c-3.7-10.5-6.1-21.7-6.9-33.4h0L400,400z"/>
-	<path class="st0" d="M400,400l-124.7,8.5h0c-0.2-2.8-0.3-5.7-0.3-8.5c0-8.7,0.9-17.2,2.6-25.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-122.4-25.4l0,0c2.3-11.3,6.2-22.1,11.4-32.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-111-57.5l0,0c5.3-10.2,11.9-19.5,19.6-27.8l0,0L400,400z"/>
-	<path class="st0" d="M335,293.2L400,400l-91.4-85.3l0,0C316.4,306.4,325.3,299.1,335,293.2L335,293.2z"/>
-	<path class="st0" d="M366.3,279.6L400,400l-65-106.8l0,0C344.7,287.3,355.1,282.7,366.3,279.6L366.3,279.6z"/>
-	<path class="st0" d="M400,275v125l-33.7-120.4l0,0C377,276.6,388.3,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9908 0.1351 -0.1351 0.9908 403.834 305.8945)"><tspan x="0" y="0" class="st2 st3">w</tspan><tspan x="25.7" y="1.1" class="st2 st3" rotate="15.8">a</tspan><tspan x="50" y="9" class="st2 st3" rotate="31.4">k</tspan><tspan x="71.3" y="23.2" class="st2 st3" rotate="46.9">i</tspan><tspan x="88" y="42.6" class="st2 st3" rotate="62.6">n</tspan><tspan x="98.9" y="65.9" class="st2 st3" rotate="78.4">g</tspan><tspan x="103.1" y="91.1" class="st2 st3" rotate="93.8"> </tspan><tspan x="100.3" y="116.7" class="st2 st3" rotate="109.6">f</tspan><tspan x="90.7" y="140.4" class="st2 st3" rotate="125.2">r</tspan><tspan x="75.2" y="160.7" class="st2 st3" rotate="140.7">o</tspan><tspan x="54.6" y="176.1" class="st2 st3" rotate="156.5">m</tspan><tspan x="30.7" y="185.3" class="st2 st3" rotate="171.3"> </tspan><tspan x="5.3" y="187.9" class="st2 st3" rotate="-172.3">s</tspan><tspan x="-20" y="183.4" class="st2 st3" rotate="-156.6">l</tspan><tspan x="-43.1" y="172.3" class="st2 st3" rotate="-141">e</tspan><tspan x="-62.3" y="155.4" class="st2 st3" rotate="-125.4">e</tspan><tspan x="-76.3" y="133.9" class="st2 st3" rotate="-109.6">p</tspan><tspan x="-83.9" y="109.5" class="st2 st3" rotate="-94.2"> </tspan><tspan x="-84.8" y="83.8" class="st2 st3" rotate="-78.4">m</tspan><tspan x="-78.6" y="58.9" class="st2 st3" rotate="-62.7">o</tspan><tspan x="-66" y="36.7" class="st2 st3" rotate="-47.2">d</tspan><tspan x="-47.9" y="18.6" class="st2 st3" rotate="-31.6">e</tspan><tspan x="-25.4" y="6" class="st2 st3" rotate="-15.8"> </tspan></text>
+<!-- <g id="waking_from_sleep_mode" class="ring">
+  <path class="st0" d="M433.7,279.6L433.7,279.6L400,400V275C411.7,275,423,276.6,433.7,279.6z"/>
+  <path class="st0" d="M465,293.2L465,293.2L400,400l33.7-120.4l0,0C444.9,282.7,455.3,287.3,465,293.2z"/>
+  <path class="st0" d="M491.4,314.7L491.4,314.7L400,400l65-106.8l0,0C474.7,299.1,483.6,306.4,491.4,314.7z"/>
+  <path class="st0" d="M511,342.5L511,342.5L400,400l91.4-85.3l0,0C499.1,323,505.8,332.3,511,342.5z"/>
+  <path class="st0" d="M522.4,374.6L522.4,374.6L400,400l111-57.5l0,0C516.2,352.5,520.1,363.2,522.4,374.6z"/>
+  <path class="st0" d="M525,400c0,2.9-0.1,5.7-0.3,8.5h0L400,400l122.4-25.4l0,0C524.1,382.8,525,391.3,525,400z"/>
+  <path class="st0" d="M524.7,408.5L524.7,408.5c-0.8,11.6-3.1,22.8-6.9,33.4l0,0L400,400L524.7,408.5z"/>
+  <path class="st0" d="M517.8,441.9L517.8,441.9c-3.8,10.9-9.1,21-15.6,30.2l0,0L400,400L517.8,441.9z"/>
+  <path class="st0" d="M502.1,472.1L502.1,472.1c-6.6,9.3-14.4,17.7-23.2,24.9l0,0L400,400L502.1,472.1z"/>
+  <path class="st0" d="M478.9,497L478.9,497c-8.8,7.2-18.5,13.2-29.1,17.7l0,0L400,400L478.9,497z"/>
+  <path class="st0" d="M449.8,514.7L449.8,514.7c-10.3,4.5-21.3,7.6-32.8,9.2v0L400,400L449.8,514.7z"/>
+  <path class="st0" d="M417,523.8L417,523.8c-5.6,0.8-11.2,1.2-17,1.2s-11.5-0.4-17-1.2v0L400,400L417,523.8z"/>
+  <path class="st0" d="M400,400l-17,123.8v0c-11.5-1.6-22.5-4.7-32.8-9.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-49.8,114.7l0,0c-10.5-4.6-20.3-10.6-29.1-17.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-78.9,97l0,0c-8.8-7.2-16.7-15.6-23.2-24.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-102.1,72.1l0,0c-6.5-9.2-11.8-19.4-15.7-30.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-117.8,41.9l0,0c-3.7-10.5-6.1-21.7-6.9-33.4h0L400,400z"/>
+  <path class="st0" d="M400,400l-124.7,8.5h0c-0.2-2.8-0.3-5.7-0.3-8.5c0-8.7,0.9-17.2,2.6-25.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-122.4-25.4l0,0c2.3-11.3,6.2-22.1,11.4-32.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-111-57.5l0,0c5.3-10.2,11.9-19.5,19.6-27.8l0,0L400,400z"/>
+  <path class="st0" d="M335,293.2L400,400l-91.4-85.3l0,0C316.4,306.4,325.3,299.1,335,293.2L335,293.2z"/>
+  <path class="st0" d="M366.3,279.6L400,400l-65-106.8l0,0C344.7,287.3,355.1,282.7,366.3,279.6L366.3,279.6z"/>
+  <path class="st0" d="M400,275v125l-33.7-120.4l0,0C377,276.6,388.3,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9908 0.1351 -0.1351 0.9908 403.834 305.8945)"><tspan x="0" y="0" class="st2 st3">w</tspan><tspan x="25.7" y="1.1" class="st2 st3" rotate="15.8">a</tspan><tspan x="50" y="9" class="st2 st3" rotate="31.4">k</tspan><tspan x="71.3" y="23.2" class="st2 st3" rotate="46.9">i</tspan><tspan x="88" y="42.6" class="st2 st3" rotate="62.6">n</tspan><tspan x="98.9" y="65.9" class="st2 st3" rotate="78.4">g</tspan><tspan x="103.1" y="91.1" class="st2 st3" rotate="93.8"> </tspan><tspan x="100.3" y="116.7" class="st2 st3" rotate="109.6">f</tspan><tspan x="90.7" y="140.4" class="st2 st3" rotate="125.2">r</tspan><tspan x="75.2" y="160.7" class="st2 st3" rotate="140.7">o</tspan><tspan x="54.6" y="176.1" class="st2 st3" rotate="156.5">m</tspan><tspan x="30.7" y="185.3" class="st2 st3" rotate="171.3"> </tspan><tspan x="5.3" y="187.9" class="st2 st3" rotate="-172.3">s</tspan><tspan x="-20" y="183.4" class="st2 st3" rotate="-156.6">l</tspan><tspan x="-43.1" y="172.3" class="st2 st3" rotate="-141">e</tspan><tspan x="-62.3" y="155.4" class="st2 st3" rotate="-125.4">e</tspan><tspan x="-76.3" y="133.9" class="st2 st3" rotate="-109.6">p</tspan><tspan x="-83.9" y="109.5" class="st2 st3" rotate="-94.2"> </tspan><tspan x="-84.8" y="83.8" class="st2 st3" rotate="-78.4">m</tspan><tspan x="-78.6" y="58.9" class="st2 st3" rotate="-62.7">o</tspan><tspan x="-66" y="36.7" class="st2 st3" rotate="-47.2">d</tspan><tspan x="-47.9" y="18.6" class="st2 st3" rotate="-31.6">e</tspan><tspan x="-25.4" y="6" class="st2 st3" rotate="-15.8"> </tspan></text>
 </g>
-<g id="buffering_breathing_patterns">
-	<path class="st0" d="M426.9,277.9L426.9,277.9L400,400V275C409.2,275,418.2,276,426.9,277.9z"/>
-	<path class="st0" d="M452.5,286.5L452.5,286.5L400,400l26.9-122.1l0,0C435.8,279.8,444.4,282.8,452.5,286.5z"/>
-	<path class="st0" d="M475.7,300.5L475.7,300.5L400,400l52.5-113.5l0,0C460.8,290.3,468.5,295,475.7,300.5z"/>
-	<path class="st0" d="M495.3,319.1L495.3,319.1L400,400l75.6-99.5l0,0C482.9,305.9,489.4,312.2,495.3,319.1z"/>
-	<path class="st0" d="M510.5,341.4L510.5,341.4L400,400l95.3-80.9l0,0C501.1,325.9,506.2,333.4,510.5,341.4z"/>
-	<path class="st0" d="M520.5,366.5L520.5,366.5L400,400l110.4-58.5l0,0C514.7,349.3,518,357.7,520.5,366.5z"/>
-	<path class="st0" d="M524.8,393.2L400,400l120.4-33.4l0,0C522.8,375.1,524.3,384,524.8,393.2z"/>
-	<path class="st0" d="M524.8,393.2c0.1,2.2,0.2,4.5,0.2,6.8c0,6.9-0.6,13.6-1.6,20.2h0L400,400L524.8,393.2z"/>
-	<path class="st0" d="M523.4,420.2L523.4,420.2c-1.5,9-3.9,17.8-7.2,26.1l0,0L400,400L523.4,420.2z"/>
-	<path class="st0" d="M516.1,446.3L516.1,446.3c-3.3,8.5-7.6,16.5-12.6,23.9l0,0L400,400L516.1,446.3z"/>
-	<path class="st0" d="M503.5,470.1L503.5,470.1c-5.1,7.5-10.9,14.4-17.5,20.6l0,0L400,400L503.5,470.1z"/>
-	<path class="st0" d="M486,490.8L486,490.8c-6.5,6.2-13.7,11.7-21.5,16.4l0,0L400,400L486,490.8z"/>
-	<path class="st0" d="M464.4,507.1L464.4,507.1c-7.7,4.7-15.9,8.5-24.5,11.4l0,0L400,400L464.4,507.1z"/>
-	<path class="st0" d="M439.9,518.5L439.9,518.5c-8.4,2.9-17.3,4.8-26.4,5.8v0L400,400L439.9,518.5z"/>
-	<path class="st0" d="M413.5,524.3L413.5,524.3c-4.4,0.5-8.9,0.7-13.5,0.7s-9.1-0.2-13.5-0.7v0L400,400L413.5,524.3z"/>
-	<path class="st0" d="M400,400l-13.5,124.3v0c-9.1-1-18-2.9-26.4-5.8l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-39.9,118.5l0,0c-8.6-2.9-16.9-6.7-24.5-11.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-64.4,107.1l0,0c-7.8-4.7-15-10.2-21.5-16.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-86,90.8l0,0c-6.5-6.2-12.4-13.1-17.5-20.6l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-103.5,70.1l0,0c-5-7.4-9.3-15.4-12.7-23.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-116.1,46.3l0,0c-3.3-8.3-5.7-17-7.2-26.1h0L400,400z"/>
-	<path class="st0" d="M400,400l-123.4,20.2h0c-1.1-6.6-1.6-13.3-1.6-20.2c0-2.3,0.1-4.5,0.2-6.8L400,400z"/>
-	<path class="st0" d="M400,400l-124.8-6.8c0.5-9.2,2-18.1,4.3-26.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-120.4-33.4l0,0c2.4-8.8,5.8-17.2,10-25.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-110.4-58.5l0,0c4.3-8,9.4-15.5,15.2-22.4l0,0L400,400z"/>
-	<path class="st0" d="M324.4,300.5L400,400l-95.3-80.9l0,0C310.6,312.2,317.1,305.9,324.4,300.5L324.4,300.5z"/>
-	<path class="st0" d="M347.5,286.5L400,400l-75.6-99.5l0,0C331.5,295,339.2,290.3,347.5,286.5L347.5,286.5z"/>
-	<path class="st0" d="M373.1,277.9L400,400l-52.5-113.5l0,0C355.6,282.8,364.2,279.8,373.1,277.9L373.1,277.9z"/>
-	<path class="st0" d="M400,275v125l-26.9-122.1l0,0C381.8,276,390.8,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9942 0.1077 -0.1077 0.9942 401.2354 305.8271)"><tspan x="0" y="0" class="st2 st3">b</tspan><tspan x="20.4" y="0.3" class="st2 st3" rotate="12.5">u</tspan><tspan x="40.3" y="4.9" class="st2 st3" rotate="25">f</tspan><tspan x="58.6" y="13.8" class="st2 st3" rotate="37.4">f</tspan><tspan x="74.6" y="26.3" class="st2 st3" rotate="49.7">e</tspan><tspan x="87.6" y="42" class="st2 st3" rotate="62.2">r</tspan><tspan x="96.9" y="60.2" class="st2 st3" rotate="74.7">i</tspan><tspan x="102.1" y="79.9" class="st2 st3" rotate="87">n</tspan><tspan x="102.9" y="100.3" class="st2 st3" rotate="99.4">g</tspan><tspan x="99.3" y="120.3" class="st2 st3" rotate="111.9"> </tspan><tspan x="91.5" y="139.1" class="st2 st3" rotate="124.3">b</tspan><tspan x="79.8" y="155.8" class="st2 st3" rotate="136.7">r</tspan><tspan x="64.8" y="169.6" class="st2 st3" rotate="149.1">e</tspan><tspan x="47.1" y="179.9" class="st2 st3" rotate="161.6">a</tspan><tspan x="27.6" y="186.2" class="st2 st3" rotate="174.7">t</tspan><tspan x="7.4" y="187.9" class="st2 st3" rotate="-173.7">h</tspan><tspan x="-12.8" y="185.4" class="st2 st3" rotate="-161.1">i</tspan><tspan x="-32" y="178.6" class="st2 st3" rotate="-148.7">n</tspan><tspan x="-49.3" y="167.8" class="st2 st3" rotate="-136.4">g</tspan><tspan x="-63.9" y="153.6" class="st2 st3" rotate="-124"> </tspan><tspan x="-75.1" y="136.5" class="st2 st3" rotate="-111.4">p</tspan><tspan x="-82.3" y="117.4" class="st2 st3" rotate="-99">a</tspan><tspan x="-85.2" y="97.3" class="st2 st3" rotate="-86.7">t</tspan><tspan x="-83.8" y="76.9" class="st2 st3" rotate="-74.2">t</tspan><tspan x="-78" y="57.4" class="st2 st3" rotate="-61.7">e</tspan><tspan x="-68.1" y="39.6" class="st2 st3" rotate="-49.4">r</tspan><tspan x="-54.7" y="24.3" class="st2 st3" rotate="-37">n</tspan><tspan x="-38.2" y="12.2" class="st2 st3" rotate="-24.5">s</tspan><tspan x="-19.6" y="4" class="st2 st3" rotate="-12"> </tspan></text>
+<g id="buffering_breathing_patterns" class="ring">
+  <path class="st0" d="M426.9,277.9L426.9,277.9L400,400V275C409.2,275,418.2,276,426.9,277.9z"/>
+  <path class="st0" d="M452.5,286.5L452.5,286.5L400,400l26.9-122.1l0,0C435.8,279.8,444.4,282.8,452.5,286.5z"/>
+  <path class="st0" d="M475.7,300.5L475.7,300.5L400,400l52.5-113.5l0,0C460.8,290.3,468.5,295,475.7,300.5z"/>
+  <path class="st0" d="M495.3,319.1L495.3,319.1L400,400l75.6-99.5l0,0C482.9,305.9,489.4,312.2,495.3,319.1z"/>
+  <path class="st0" d="M510.5,341.4L510.5,341.4L400,400l95.3-80.9l0,0C501.1,325.9,506.2,333.4,510.5,341.4z"/>
+  <path class="st0" d="M520.5,366.5L520.5,366.5L400,400l110.4-58.5l0,0C514.7,349.3,518,357.7,520.5,366.5z"/>
+  <path class="st0" d="M524.8,393.2L400,400l120.4-33.4l0,0C522.8,375.1,524.3,384,524.8,393.2z"/>
+  <path class="st0" d="M524.8,393.2c0.1,2.2,0.2,4.5,0.2,6.8c0,6.9-0.6,13.6-1.6,20.2h0L400,400L524.8,393.2z"/>
+  <path class="st0" d="M523.4,420.2L523.4,420.2c-1.5,9-3.9,17.8-7.2,26.1l0,0L400,400L523.4,420.2z"/>
+  <path class="st0" d="M516.1,446.3L516.1,446.3c-3.3,8.5-7.6,16.5-12.6,23.9l0,0L400,400L516.1,446.3z"/>
+  <path class="st0" d="M503.5,470.1L503.5,470.1c-5.1,7.5-10.9,14.4-17.5,20.6l0,0L400,400L503.5,470.1z"/>
+  <path class="st0" d="M486,490.8L486,490.8c-6.5,6.2-13.7,11.7-21.5,16.4l0,0L400,400L486,490.8z"/>
+  <path class="st0" d="M464.4,507.1L464.4,507.1c-7.7,4.7-15.9,8.5-24.5,11.4l0,0L400,400L464.4,507.1z"/>
+  <path class="st0" d="M439.9,518.5L439.9,518.5c-8.4,2.9-17.3,4.8-26.4,5.8v0L400,400L439.9,518.5z"/>
+  <path class="st0" d="M413.5,524.3L413.5,524.3c-4.4,0.5-8.9,0.7-13.5,0.7s-9.1-0.2-13.5-0.7v0L400,400L413.5,524.3z"/>
+  <path class="st0" d="M400,400l-13.5,124.3v0c-9.1-1-18-2.9-26.4-5.8l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-39.9,118.5l0,0c-8.6-2.9-16.9-6.7-24.5-11.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-64.4,107.1l0,0c-7.8-4.7-15-10.2-21.5-16.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-86,90.8l0,0c-6.5-6.2-12.4-13.1-17.5-20.6l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-103.5,70.1l0,0c-5-7.4-9.3-15.4-12.7-23.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-116.1,46.3l0,0c-3.3-8.3-5.7-17-7.2-26.1h0L400,400z"/>
+  <path class="st0" d="M400,400l-123.4,20.2h0c-1.1-6.6-1.6-13.3-1.6-20.2c0-2.3,0.1-4.5,0.2-6.8L400,400z"/>
+  <path class="st0" d="M400,400l-124.8-6.8c0.5-9.2,2-18.1,4.3-26.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-120.4-33.4l0,0c2.4-8.8,5.8-17.2,10-25.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-110.4-58.5l0,0c4.3-8,9.4-15.5,15.2-22.4l0,0L400,400z"/>
+  <path class="st0" d="M324.4,300.5L400,400l-95.3-80.9l0,0C310.6,312.2,317.1,305.9,324.4,300.5L324.4,300.5z"/>
+  <path class="st0" d="M347.5,286.5L400,400l-75.6-99.5l0,0C331.5,295,339.2,290.3,347.5,286.5L347.5,286.5z"/>
+  <path class="st0" d="M373.1,277.9L400,400l-52.5-113.5l0,0C355.6,282.8,364.2,279.8,373.1,277.9L373.1,277.9z"/>
+  <path class="st0" d="M400,275v125l-26.9-122.1l0,0C381.8,276,390.8,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9942 0.1077 -0.1077 0.9942 401.2354 305.8271)"><tspan x="0" y="0" class="st2 st3">b</tspan><tspan x="20.4" y="0.3" class="st2 st3" rotate="12.5">u</tspan><tspan x="40.3" y="4.9" class="st2 st3" rotate="25">f</tspan><tspan x="58.6" y="13.8" class="st2 st3" rotate="37.4">f</tspan><tspan x="74.6" y="26.3" class="st2 st3" rotate="49.7">e</tspan><tspan x="87.6" y="42" class="st2 st3" rotate="62.2">r</tspan><tspan x="96.9" y="60.2" class="st2 st3" rotate="74.7">i</tspan><tspan x="102.1" y="79.9" class="st2 st3" rotate="87">n</tspan><tspan x="102.9" y="100.3" class="st2 st3" rotate="99.4">g</tspan><tspan x="99.3" y="120.3" class="st2 st3" rotate="111.9"> </tspan><tspan x="91.5" y="139.1" class="st2 st3" rotate="124.3">b</tspan><tspan x="79.8" y="155.8" class="st2 st3" rotate="136.7">r</tspan><tspan x="64.8" y="169.6" class="st2 st3" rotate="149.1">e</tspan><tspan x="47.1" y="179.9" class="st2 st3" rotate="161.6">a</tspan><tspan x="27.6" y="186.2" class="st2 st3" rotate="174.7">t</tspan><tspan x="7.4" y="187.9" class="st2 st3" rotate="-173.7">h</tspan><tspan x="-12.8" y="185.4" class="st2 st3" rotate="-161.1">i</tspan><tspan x="-32" y="178.6" class="st2 st3" rotate="-148.7">n</tspan><tspan x="-49.3" y="167.8" class="st2 st3" rotate="-136.4">g</tspan><tspan x="-63.9" y="153.6" class="st2 st3" rotate="-124"> </tspan><tspan x="-75.1" y="136.5" class="st2 st3" rotate="-111.4">p</tspan><tspan x="-82.3" y="117.4" class="st2 st3" rotate="-99">a</tspan><tspan x="-85.2" y="97.3" class="st2 st3" rotate="-86.7">t</tspan><tspan x="-83.8" y="76.9" class="st2 st3" rotate="-74.2">t</tspan><tspan x="-78" y="57.4" class="st2 st3" rotate="-61.7">e</tspan><tspan x="-68.1" y="39.6" class="st2 st3" rotate="-49.4">r</tspan><tspan x="-54.7" y="24.3" class="st2 st3" rotate="-37">n</tspan><tspan x="-38.2" y="12.2" class="st2 st3" rotate="-24.5">s</tspan><tspan x="-19.6" y="4" class="st2 st3" rotate="-12"> </tspan></text>
 </g>
-<g id="converting_unconscious">
-	<path class="st0" d="M433.7,279.6L433.7,279.6L400,400V275C411.7,275,423,276.6,433.7,279.6z"/>
-	<path class="st0" d="M465,293.2L465,293.2L400,400l33.7-120.4l0,0C444.9,282.7,455.3,287.3,465,293.2z"/>
-	<path class="st0" d="M491.4,314.7L491.4,314.7L400,400l65-106.8l0,0C474.7,299.1,483.6,306.4,491.4,314.7z"/>
-	<path class="st0" d="M511,342.5L511,342.5L400,400l91.4-85.3l0,0C499.1,323,505.8,332.3,511,342.5z"/>
-	<path class="st0" d="M522.4,374.6L522.4,374.6L400,400l111-57.5l0,0C516.2,352.5,520.1,363.2,522.4,374.6z"/>
-	<path class="st0" d="M525,400c0,2.9-0.1,5.7-0.3,8.5h0L400,400l122.4-25.4l0,0C524.1,382.8,525,391.3,525,400z"/>
-	<path class="st0" d="M524.7,408.5L524.7,408.5c-0.8,11.6-3.1,22.8-6.9,33.4l0,0L400,400L524.7,408.5z"/>
-	<path class="st0" d="M517.8,441.9L517.8,441.9c-3.8,10.9-9.1,21-15.6,30.2l0,0L400,400L517.8,441.9z"/>
-	<path class="st0" d="M502.1,472.1L502.1,472.1c-6.6,9.3-14.4,17.7-23.2,24.9l0,0L400,400L502.1,472.1z"/>
-	<path class="st0" d="M478.9,497L478.9,497c-8.8,7.2-18.5,13.2-29.1,17.7l0,0L400,400L478.9,497z"/>
-	<path class="st0" d="M449.8,514.7L449.8,514.7c-10.3,4.5-21.3,7.6-32.8,9.2v0L400,400L449.8,514.7z"/>
-	<path class="st0" d="M417,523.8L417,523.8c-5.6,0.8-11.2,1.2-17,1.2s-11.5-0.4-17-1.2v0L400,400L417,523.8z"/>
-	<path class="st0" d="M400,400l-17,123.8v0c-11.5-1.6-22.5-4.7-32.8-9.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-49.8,114.7l0,0c-10.5-4.6-20.3-10.6-29.1-17.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-78.9,97l0,0c-8.8-7.2-16.7-15.6-23.2-24.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-102.1,72.1l0,0c-6.5-9.2-11.8-19.4-15.7-30.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-117.8,41.9l0,0c-3.7-10.5-6.1-21.7-6.9-33.4h0L400,400z"/>
-	<path class="st0" d="M400,400l-124.7,8.5h0c-0.2-2.8-0.3-5.7-0.3-8.5c0-8.7,0.9-17.2,2.6-25.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-122.4-25.4l0,0c2.3-11.3,6.2-22.1,11.4-32.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-111-57.5l0,0c5.3-10.2,11.9-19.5,19.6-27.8l0,0L400,400z"/>
-	<path class="st0" d="M335,293.2L400,400l-91.4-85.3l0,0C316.4,306.4,325.3,299.1,335,293.2L335,293.2z"/>
-	<path class="st0" d="M366.3,279.6L400,400l-65-106.8l0,0C344.7,287.3,355.1,282.7,366.3,279.6L366.3,279.6z"/>
-	<path class="st0" d="M400,275v125l-33.7-120.4l0,0C377,276.6,388.3,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9908 0.1351 -0.1351 0.9908 403.834 305.8945)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="25.7" y="1.1" class="st2 st3" rotate="15.8">o</tspan><tspan x="50" y="9" class="st2 st3" rotate="31.4">n</tspan><tspan x="71.3" y="23.2" class="st2 st3" rotate="46.9">v</tspan><tspan x="88" y="42.6" class="st2 st3" rotate="62.6">e</tspan><tspan x="98.9" y="65.9" class="st2 st3" rotate="78.4">r</tspan><tspan x="103.1" y="91.1" class="st2 st3" rotate="93.8">t</tspan><tspan x="100.3" y="116.7" class="st2 st3" rotate="109.6">i</tspan><tspan x="90.7" y="140.4" class="st2 st3" rotate="125.2">n</tspan><tspan x="75.2" y="160.7" class="st2 st3" rotate="140.7">g</tspan><tspan x="54.6" y="176.1" class="st2 st3" rotate="156.5"> </tspan><tspan x="30.7" y="185.3" class="st2 st3" rotate="171.3">u</tspan><tspan x="5.3" y="187.9" class="st2 st3" rotate="-172.3">n</tspan><tspan x="-20" y="183.4" class="st2 st3" rotate="-156.6">c</tspan><tspan x="-43.1" y="172.3" class="st2 st3" rotate="-141">o</tspan><tspan x="-62.3" y="155.4" class="st2 st3" rotate="-125.4">n</tspan><tspan x="-76.3" y="133.9" class="st2 st3" rotate="-109.6">s</tspan><tspan x="-83.9" y="109.5" class="st2 st3" rotate="-94.2">c</tspan><tspan x="-84.8" y="83.8" class="st2 st3" rotate="-78.4">i</tspan><tspan x="-78.6" y="58.9" class="st2 st3" rotate="-62.7">o</tspan><tspan x="-66" y="36.7" class="st2 st3" rotate="-47.2">u</tspan><tspan x="-47.9" y="18.6" class="st2 st3" rotate="-31.6">s</tspan><tspan x="-25.4" y="6" class="st2 st3" rotate="-15.8"> </tspan></text>
+<g id="converting_unconscious" class="ring">
+  <path class="st0" d="M433.7,279.6L433.7,279.6L400,400V275C411.7,275,423,276.6,433.7,279.6z"/>
+  <path class="st0" d="M465,293.2L465,293.2L400,400l33.7-120.4l0,0C444.9,282.7,455.3,287.3,465,293.2z"/>
+  <path class="st0" d="M491.4,314.7L491.4,314.7L400,400l65-106.8l0,0C474.7,299.1,483.6,306.4,491.4,314.7z"/>
+  <path class="st0" d="M511,342.5L511,342.5L400,400l91.4-85.3l0,0C499.1,323,505.8,332.3,511,342.5z"/>
+  <path class="st0" d="M522.4,374.6L522.4,374.6L400,400l111-57.5l0,0C516.2,352.5,520.1,363.2,522.4,374.6z"/>
+  <path class="st0" d="M525,400c0,2.9-0.1,5.7-0.3,8.5h0L400,400l122.4-25.4l0,0C524.1,382.8,525,391.3,525,400z"/>
+  <path class="st0" d="M524.7,408.5L524.7,408.5c-0.8,11.6-3.1,22.8-6.9,33.4l0,0L400,400L524.7,408.5z"/>
+  <path class="st0" d="M517.8,441.9L517.8,441.9c-3.8,10.9-9.1,21-15.6,30.2l0,0L400,400L517.8,441.9z"/>
+  <path class="st0" d="M502.1,472.1L502.1,472.1c-6.6,9.3-14.4,17.7-23.2,24.9l0,0L400,400L502.1,472.1z"/>
+  <path class="st0" d="M478.9,497L478.9,497c-8.8,7.2-18.5,13.2-29.1,17.7l0,0L400,400L478.9,497z"/>
+  <path class="st0" d="M449.8,514.7L449.8,514.7c-10.3,4.5-21.3,7.6-32.8,9.2v0L400,400L449.8,514.7z"/>
+  <path class="st0" d="M417,523.8L417,523.8c-5.6,0.8-11.2,1.2-17,1.2s-11.5-0.4-17-1.2v0L400,400L417,523.8z"/>
+  <path class="st0" d="M400,400l-17,123.8v0c-11.5-1.6-22.5-4.7-32.8-9.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-49.8,114.7l0,0c-10.5-4.6-20.3-10.6-29.1-17.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-78.9,97l0,0c-8.8-7.2-16.7-15.6-23.2-24.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-102.1,72.1l0,0c-6.5-9.2-11.8-19.4-15.7-30.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-117.8,41.9l0,0c-3.7-10.5-6.1-21.7-6.9-33.4h0L400,400z"/>
+  <path class="st0" d="M400,400l-124.7,8.5h0c-0.2-2.8-0.3-5.7-0.3-8.5c0-8.7,0.9-17.2,2.6-25.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-122.4-25.4l0,0c2.3-11.3,6.2-22.1,11.4-32.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-111-57.5l0,0c5.3-10.2,11.9-19.5,19.6-27.8l0,0L400,400z"/>
+  <path class="st0" d="M335,293.2L400,400l-91.4-85.3l0,0C316.4,306.4,325.3,299.1,335,293.2L335,293.2z"/>
+  <path class="st0" d="M366.3,279.6L400,400l-65-106.8l0,0C344.7,287.3,355.1,282.7,366.3,279.6L366.3,279.6z"/>
+  <path class="st0" d="M400,275v125l-33.7-120.4l0,0C377,276.6,388.3,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9908 0.1351 -0.1351 0.9908 403.834 305.8945)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="25.7" y="1.1" class="st2 st3" rotate="15.8">o</tspan><tspan x="50" y="9" class="st2 st3" rotate="31.4">n</tspan><tspan x="71.3" y="23.2" class="st2 st3" rotate="46.9">v</tspan><tspan x="88" y="42.6" class="st2 st3" rotate="62.6">e</tspan><tspan x="98.9" y="65.9" class="st2 st3" rotate="78.4">r</tspan><tspan x="103.1" y="91.1" class="st2 st3" rotate="93.8">t</tspan><tspan x="100.3" y="116.7" class="st2 st3" rotate="109.6">i</tspan><tspan x="90.7" y="140.4" class="st2 st3" rotate="125.2">n</tspan><tspan x="75.2" y="160.7" class="st2 st3" rotate="140.7">g</tspan><tspan x="54.6" y="176.1" class="st2 st3" rotate="156.5"> </tspan><tspan x="30.7" y="185.3" class="st2 st3" rotate="171.3">u</tspan><tspan x="5.3" y="187.9" class="st2 st3" rotate="-172.3">n</tspan><tspan x="-20" y="183.4" class="st2 st3" rotate="-156.6">c</tspan><tspan x="-43.1" y="172.3" class="st2 st3" rotate="-141">o</tspan><tspan x="-62.3" y="155.4" class="st2 st3" rotate="-125.4">n</tspan><tspan x="-76.3" y="133.9" class="st2 st3" rotate="-109.6">s</tspan><tspan x="-83.9" y="109.5" class="st2 st3" rotate="-94.2">c</tspan><tspan x="-84.8" y="83.8" class="st2 st3" rotate="-78.4">i</tspan><tspan x="-78.6" y="58.9" class="st2 st3" rotate="-62.7">o</tspan><tspan x="-66" y="36.7" class="st2 st3" rotate="-47.2">u</tspan><tspan x="-47.9" y="18.6" class="st2 st3" rotate="-31.6">s</tspan><tspan x="-25.4" y="6" class="st2 st3" rotate="-15.8"> </tspan></text>
 </g>
-<g id="converting_subconscious">
-	<path class="st0" d="M432.4,279.2L432.4,279.2L400,400V275C411.2,275,422,276.5,432.4,279.2z"/>
-	<path class="st0" d="M462.5,291.7L462.5,291.7L400,400l32.4-120.7l0,0C443,282.1,453.2,286.3,462.5,291.7z"/>
-	<path class="st0" d="M488.4,311.6L488.4,311.6L400,400l62.5-108.3l0,0C472,297.2,480.7,303.9,488.4,311.6z"/>
-	<path class="st0" d="M508.3,337.5L508.3,337.5L400,400l88.4-88.4l0,0C496.1,319.3,502.8,328,508.3,337.5z"/>
-	<path class="st0" d="M520.8,367.6L520.8,367.6L400,400l108.3-62.5l0,0C513.7,346.8,517.9,357,520.8,367.6z"/>
-	<path class="st0" d="M525,400H400l120.7-32.4l0,0C523.5,378,525,388.8,525,400z"/>
-	<path class="st0" d="M525,400c0,11.2-1.5,22-4.2,32.4l0,0L400,400H525z"/>
-	<path class="st0" d="M520.7,432.4L520.7,432.4c-2.8,10.7-7,20.8-12.5,30.2l0,0L400,400L520.7,432.4z"/>
-	<path class="st0" d="M508.3,462.5L508.3,462.5c-5.4,9.5-12.1,18.2-19.8,25.9l0,0L400,400L508.3,462.5z"/>
-	<path class="st0" d="M488.4,488.4L488.4,488.4c-7.7,7.7-16.4,14.4-25.9,19.9l0,0L400,400L488.4,488.4z"/>
-	<path class="st0" d="M462.5,508.3L462.5,508.3c-9.3,5.4-19.5,9.7-30.1,12.5l0,0L400,400L462.5,508.3z"/>
-	<path class="st0" d="M432.4,520.7L432.4,520.7c-10.3,2.8-21.2,4.3-32.4,4.3V400L432.4,520.7z"/>
-	<path class="st0" d="M400,400v125c-11.2,0-22-1.5-32.4-4.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-32.4,120.7l0,0c-10.7-2.8-20.8-7.1-30.2-12.5l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-62.5,108.3l0,0c-9.5-5.5-18.2-12.2-25.9-19.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-88.4,88.4l0,0c-7.7-7.7-14.4-16.4-19.9-25.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3,62.5l0,0c-5.4-9.3-9.6-19.5-12.5-30.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-120.7,32.4l0,0c-2.8-10.3-4.2-21.2-4.2-32.4H400z"/>
-	<path class="st0" d="M400,400H275c0-11.2,1.5-22,4.2-32.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-120.7-32.4l0,0c2.9-10.7,7.1-20.8,12.5-30.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3-62.5l0,0c5.5-9.5,12.2-18.2,19.9-25.9l0,0L400,400z"/>
-	<path class="st0" d="M337.5,291.7L400,400l-88.4-88.4l0,0C319.3,303.9,328,297.2,337.5,291.7L337.5,291.7z"/>
-	<path class="st0" d="M367.6,279.3L400,400l-62.5-108.3l0,0C346.8,286.3,357,282.1,367.6,279.3L367.6,279.3z"/>
-	<path class="st0" d="M400,275v125l-32.4-120.7l0,0C378,276.5,388.8,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9924 0.1232 -0.1232 0.9924 402.7031 305.856)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="24.6" y="0.9" class="st2 st3" rotate="15.1">o</tspan><tspan x="48.1" y="8.1" class="st2 st3" rotate="30.1">n</tspan><tspan x="68.8" y="21.1" class="st2 st3" rotate="45">v</tspan><tspan x="85.6" y="39" class="st2 st3" rotate="60">e</tspan><tspan x="97.2" y="60.8" class="st2 st3" rotate="75.1">r</tspan><tspan x="102.6" y="84.6" class="st2 st3" rotate="89.8">t</tspan><tspan x="101.9" y="109.2" class="st2 st3" rotate="104.9">i</tspan><tspan x="94.7" y="132.7" class="st2 st3" rotate="120">n</tspan><tspan x="81.8" y="153.5" class="st2 st3" rotate="134.8">g</tspan><tspan x="63.9" y="170.3" class="st2 st3" rotate="149.8"> </tspan><tspan x="42.1" y="181.9" class="st2 st3" rotate="164.9">s</tspan><tspan x="18.3" y="187.5" class="st2 st3" rotate="179.7">u</tspan><tspan x="-6.2" y="186.7" class="st2 st3" rotate="-165.2">b</tspan><tspan x="-29.8" y="179.7" class="st2 st3" rotate="-150.2">c</tspan><tspan x="-50.6" y="166.8" class="st2 st3" rotate="-135.3">o</tspan><tspan x="-67.5" y="148.9" class="st2 st3" rotate="-120.4">n</tspan><tspan x="-79.1" y="127.2" class="st2 st3" rotate="-105.2">s</tspan><tspan x="-84.8" y="103.4" class="st2 st3" rotate="-90.5">c</tspan><tspan x="-84.1" y="78.9" class="st2 st3" rotate="-75.4">i</tspan><tspan x="-77.1" y="55.3" class="st2 st3" rotate="-60.4">o</tspan><tspan x="-64.2" y="34.4" class="st2 st3" rotate="-45.5">u</tspan><tspan x="-46.4" y="17.5" class="st2 st3" rotate="-30.5">s</tspan><tspan x="-24.8" y="5.8" class="st2 st3" rotate="-15.4"> </tspan></text>
+<g id="converting_subconscious" class="ring">
+  <path class="st0" d="M432.4,279.2L432.4,279.2L400,400V275C411.2,275,422,276.5,432.4,279.2z"/>
+  <path class="st0" d="M462.5,291.7L462.5,291.7L400,400l32.4-120.7l0,0C443,282.1,453.2,286.3,462.5,291.7z"/>
+  <path class="st0" d="M488.4,311.6L488.4,311.6L400,400l62.5-108.3l0,0C472,297.2,480.7,303.9,488.4,311.6z"/>
+  <path class="st0" d="M508.3,337.5L508.3,337.5L400,400l88.4-88.4l0,0C496.1,319.3,502.8,328,508.3,337.5z"/>
+  <path class="st0" d="M520.8,367.6L520.8,367.6L400,400l108.3-62.5l0,0C513.7,346.8,517.9,357,520.8,367.6z"/>
+  <path class="st0" d="M525,400H400l120.7-32.4l0,0C523.5,378,525,388.8,525,400z"/>
+  <path class="st0" d="M525,400c0,11.2-1.5,22-4.2,32.4l0,0L400,400H525z"/>
+  <path class="st0" d="M520.7,432.4L520.7,432.4c-2.8,10.7-7,20.8-12.5,30.2l0,0L400,400L520.7,432.4z"/>
+  <path class="st0" d="M508.3,462.5L508.3,462.5c-5.4,9.5-12.1,18.2-19.8,25.9l0,0L400,400L508.3,462.5z"/>
+  <path class="st0" d="M488.4,488.4L488.4,488.4c-7.7,7.7-16.4,14.4-25.9,19.9l0,0L400,400L488.4,488.4z"/>
+  <path class="st0" d="M462.5,508.3L462.5,508.3c-9.3,5.4-19.5,9.7-30.1,12.5l0,0L400,400L462.5,508.3z"/>
+  <path class="st0" d="M432.4,520.7L432.4,520.7c-10.3,2.8-21.2,4.3-32.4,4.3V400L432.4,520.7z"/>
+  <path class="st0" d="M400,400v125c-11.2,0-22-1.5-32.4-4.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-32.4,120.7l0,0c-10.7-2.8-20.8-7.1-30.2-12.5l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-62.5,108.3l0,0c-9.5-5.5-18.2-12.2-25.9-19.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-88.4,88.4l0,0c-7.7-7.7-14.4-16.4-19.9-25.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3,62.5l0,0c-5.4-9.3-9.6-19.5-12.5-30.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-120.7,32.4l0,0c-2.8-10.3-4.2-21.2-4.2-32.4H400z"/>
+  <path class="st0" d="M400,400H275c0-11.2,1.5-22,4.2-32.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-120.7-32.4l0,0c2.9-10.7,7.1-20.8,12.5-30.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3-62.5l0,0c5.5-9.5,12.2-18.2,19.9-25.9l0,0L400,400z"/>
+  <path class="st0" d="M337.5,291.7L400,400l-88.4-88.4l0,0C319.3,303.9,328,297.2,337.5,291.7L337.5,291.7z"/>
+  <path class="st0" d="M367.6,279.3L400,400l-62.5-108.3l0,0C346.8,286.3,357,282.1,367.6,279.3L367.6,279.3z"/>
+  <path class="st0" d="M400,275v125l-32.4-120.7l0,0C378,276.5,388.8,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9924 0.1232 -0.1232 0.9924 402.7031 305.856)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="24.6" y="0.9" class="st2 st3" rotate="15.1">o</tspan><tspan x="48.1" y="8.1" class="st2 st3" rotate="30.1">n</tspan><tspan x="68.8" y="21.1" class="st2 st3" rotate="45">v</tspan><tspan x="85.6" y="39" class="st2 st3" rotate="60">e</tspan><tspan x="97.2" y="60.8" class="st2 st3" rotate="75.1">r</tspan><tspan x="102.6" y="84.6" class="st2 st3" rotate="89.8">t</tspan><tspan x="101.9" y="109.2" class="st2 st3" rotate="104.9">i</tspan><tspan x="94.7" y="132.7" class="st2 st3" rotate="120">n</tspan><tspan x="81.8" y="153.5" class="st2 st3" rotate="134.8">g</tspan><tspan x="63.9" y="170.3" class="st2 st3" rotate="149.8"> </tspan><tspan x="42.1" y="181.9" class="st2 st3" rotate="164.9">s</tspan><tspan x="18.3" y="187.5" class="st2 st3" rotate="179.7">u</tspan><tspan x="-6.2" y="186.7" class="st2 st3" rotate="-165.2">b</tspan><tspan x="-29.8" y="179.7" class="st2 st3" rotate="-150.2">c</tspan><tspan x="-50.6" y="166.8" class="st2 st3" rotate="-135.3">o</tspan><tspan x="-67.5" y="148.9" class="st2 st3" rotate="-120.4">n</tspan><tspan x="-79.1" y="127.2" class="st2 st3" rotate="-105.2">s</tspan><tspan x="-84.8" y="103.4" class="st2 st3" rotate="-90.5">c</tspan><tspan x="-84.1" y="78.9" class="st2 st3" rotate="-75.4">i</tspan><tspan x="-77.1" y="55.3" class="st2 st3" rotate="-60.4">o</tspan><tspan x="-64.2" y="34.4" class="st2 st3" rotate="-45.5">u</tspan><tspan x="-46.4" y="17.5" class="st2 st3" rotate="-30.5">s</tspan><tspan x="-24.8" y="5.8" class="st2 st3" rotate="-15.4"> </tspan></text>
 </g>
-<g id="consolidating_conscious">
-	<path class="st0" d="M432.4,279.2L432.4,279.2L400,400V275C411.2,275,422,276.5,432.4,279.2z"/>
-	<path class="st0" d="M462.5,291.7L462.5,291.7L400,400l32.4-120.7l0,0C443,282.1,453.2,286.3,462.5,291.7z"/>
-	<path class="st0" d="M488.4,311.6L488.4,311.6L400,400l62.5-108.3l0,0C472,297.2,480.7,303.9,488.4,311.6z"/>
-	<path class="st0" d="M508.3,337.5L508.3,337.5L400,400l88.4-88.4l0,0C496.1,319.3,502.8,328,508.3,337.5z"/>
-	<path class="st0" d="M520.8,367.6L520.8,367.6L400,400l108.3-62.5l0,0C513.7,346.8,517.9,357,520.8,367.6z"/>
-	<path class="st0" d="M525,400H400l120.7-32.4l0,0C523.5,378,525,388.8,525,400z"/>
-	<path class="st0" d="M525,400c0,11.2-1.5,22-4.2,32.4l0,0L400,400H525z"/>
-	<path class="st0" d="M520.7,432.4L520.7,432.4c-2.8,10.7-7,20.8-12.5,30.2l0,0L400,400L520.7,432.4z"/>
-	<path class="st0" d="M508.3,462.5L508.3,462.5c-5.4,9.5-12.1,18.2-19.8,25.9l0,0L400,400L508.3,462.5z"/>
-	<path class="st0" d="M488.4,488.4L488.4,488.4c-7.7,7.7-16.4,14.4-25.9,19.9l0,0L400,400L488.4,488.4z"/>
-	<path class="st0" d="M462.5,508.3L462.5,508.3c-9.3,5.4-19.5,9.7-30.1,12.5l0,0L400,400L462.5,508.3z"/>
-	<path class="st0" d="M432.4,520.7L432.4,520.7c-10.3,2.8-21.2,4.3-32.4,4.3V400L432.4,520.7z"/>
-	<path class="st0" d="M400,400v125c-11.2,0-22-1.5-32.4-4.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-32.4,120.7l0,0c-10.7-2.8-20.8-7.1-30.2-12.5l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-62.5,108.3l0,0c-9.5-5.5-18.2-12.2-25.9-19.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-88.4,88.4l0,0c-7.7-7.7-14.4-16.4-19.9-25.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3,62.5l0,0c-5.4-9.3-9.6-19.5-12.5-30.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-120.7,32.4l0,0c-2.8-10.3-4.2-21.2-4.2-32.4H400z"/>
-	<path class="st0" d="M400,400H275c0-11.2,1.5-22,4.2-32.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-120.7-32.4l0,0c2.9-10.7,7.1-20.8,12.5-30.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3-62.5l0,0c5.5-9.5,12.2-18.2,19.9-25.9l0,0L400,400z"/>
-	<path class="st0" d="M337.5,291.7L400,400l-88.4-88.4l0,0C319.3,303.9,328,297.2,337.5,291.7L337.5,291.7z"/>
-	<path class="st0" d="M367.6,279.3L400,400l-62.5-108.3l0,0C346.8,286.3,357,282.1,367.6,279.3L367.6,279.3z"/>
-	<path class="st0" d="M400,275v125l-32.4-120.7l0,0C378,276.5,388.8,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9924 0.1232 -0.1232 0.9924 402.7031 305.856)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="24.6" y="0.9" class="st2 st3" rotate="15.1">o</tspan><tspan x="48.1" y="8.1" class="st2 st3" rotate="30.1">n</tspan><tspan x="68.8" y="21.1" class="st2 st3" rotate="45">s</tspan><tspan x="85.6" y="39" class="st2 st3" rotate="60">o</tspan><tspan x="97.2" y="60.8" class="st2 st3" rotate="75.1">l</tspan><tspan x="102.6" y="84.6" class="st2 st3" rotate="89.8">i</tspan><tspan x="101.9" y="109.2" class="st2 st3" rotate="104.9">d</tspan><tspan x="94.7" y="132.7" class="st2 st3" rotate="120">a</tspan><tspan x="81.8" y="153.5" class="st2 st3" rotate="134.8">t</tspan><tspan x="63.9" y="170.3" class="st2 st3" rotate="149.8">i</tspan><tspan x="42.1" y="181.9" class="st2 st3" rotate="164.9">n</tspan><tspan x="18.3" y="187.5" class="st2 st3" rotate="179.7">g</tspan><tspan x="-6.2" y="186.7" class="st2 st3" rotate="-165.2"> </tspan><tspan x="-29.8" y="179.7" class="st2 st3" rotate="-150.2">c</tspan><tspan x="-50.6" y="166.8" class="st2 st3" rotate="-135.3">o</tspan><tspan x="-67.5" y="148.9" class="st2 st3" rotate="-120.4">n</tspan><tspan x="-79.1" y="127.2" class="st2 st3" rotate="-105.2">s</tspan><tspan x="-84.8" y="103.4" class="st2 st3" rotate="-90.5">c</tspan><tspan x="-84.1" y="78.9" class="st2 st3" rotate="-75.4">i</tspan><tspan x="-77.1" y="55.3" class="st2 st3" rotate="-60.4">o</tspan><tspan x="-64.2" y="34.4" class="st2 st3" rotate="-45.5">u</tspan><tspan x="-46.4" y="17.5" class="st2 st3" rotate="-30.5">s</tspan><tspan x="-24.8" y="5.8" class="st2 st3" rotate="-15.4"> </tspan></text>
+<g id="consolidating_conscious" class="ring">
+  <path class="st0" d="M432.4,279.2L432.4,279.2L400,400V275C411.2,275,422,276.5,432.4,279.2z"/>
+  <path class="st0" d="M462.5,291.7L462.5,291.7L400,400l32.4-120.7l0,0C443,282.1,453.2,286.3,462.5,291.7z"/>
+  <path class="st0" d="M488.4,311.6L488.4,311.6L400,400l62.5-108.3l0,0C472,297.2,480.7,303.9,488.4,311.6z"/>
+  <path class="st0" d="M508.3,337.5L508.3,337.5L400,400l88.4-88.4l0,0C496.1,319.3,502.8,328,508.3,337.5z"/>
+  <path class="st0" d="M520.8,367.6L520.8,367.6L400,400l108.3-62.5l0,0C513.7,346.8,517.9,357,520.8,367.6z"/>
+  <path class="st0" d="M525,400H400l120.7-32.4l0,0C523.5,378,525,388.8,525,400z"/>
+  <path class="st0" d="M525,400c0,11.2-1.5,22-4.2,32.4l0,0L400,400H525z"/>
+  <path class="st0" d="M520.7,432.4L520.7,432.4c-2.8,10.7-7,20.8-12.5,30.2l0,0L400,400L520.7,432.4z"/>
+  <path class="st0" d="M508.3,462.5L508.3,462.5c-5.4,9.5-12.1,18.2-19.8,25.9l0,0L400,400L508.3,462.5z"/>
+  <path class="st0" d="M488.4,488.4L488.4,488.4c-7.7,7.7-16.4,14.4-25.9,19.9l0,0L400,400L488.4,488.4z"/>
+  <path class="st0" d="M462.5,508.3L462.5,508.3c-9.3,5.4-19.5,9.7-30.1,12.5l0,0L400,400L462.5,508.3z"/>
+  <path class="st0" d="M432.4,520.7L432.4,520.7c-10.3,2.8-21.2,4.3-32.4,4.3V400L432.4,520.7z"/>
+  <path class="st0" d="M400,400v125c-11.2,0-22-1.5-32.4-4.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-32.4,120.7l0,0c-10.7-2.8-20.8-7.1-30.2-12.5l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-62.5,108.3l0,0c-9.5-5.5-18.2-12.2-25.9-19.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-88.4,88.4l0,0c-7.7-7.7-14.4-16.4-19.9-25.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3,62.5l0,0c-5.4-9.3-9.6-19.5-12.5-30.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-120.7,32.4l0,0c-2.8-10.3-4.2-21.2-4.2-32.4H400z"/>
+  <path class="st0" d="M400,400H275c0-11.2,1.5-22,4.2-32.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-120.7-32.4l0,0c2.9-10.7,7.1-20.8,12.5-30.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3-62.5l0,0c5.5-9.5,12.2-18.2,19.9-25.9l0,0L400,400z"/>
+  <path class="st0" d="M337.5,291.7L400,400l-88.4-88.4l0,0C319.3,303.9,328,297.2,337.5,291.7L337.5,291.7z"/>
+  <path class="st0" d="M367.6,279.3L400,400l-62.5-108.3l0,0C346.8,286.3,357,282.1,367.6,279.3L367.6,279.3z"/>
+  <path class="st0" d="M400,275v125l-32.4-120.7l0,0C378,276.5,388.8,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9924 0.1232 -0.1232 0.9924 402.7031 305.856)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="24.6" y="0.9" class="st2 st3" rotate="15.1">o</tspan><tspan x="48.1" y="8.1" class="st2 st3" rotate="30.1">n</tspan><tspan x="68.8" y="21.1" class="st2 st3" rotate="45">s</tspan><tspan x="85.6" y="39" class="st2 st3" rotate="60">o</tspan><tspan x="97.2" y="60.8" class="st2 st3" rotate="75.1">l</tspan><tspan x="102.6" y="84.6" class="st2 st3" rotate="89.8">i</tspan><tspan x="101.9" y="109.2" class="st2 st3" rotate="104.9">d</tspan><tspan x="94.7" y="132.7" class="st2 st3" rotate="120">a</tspan><tspan x="81.8" y="153.5" class="st2 st3" rotate="134.8">t</tspan><tspan x="63.9" y="170.3" class="st2 st3" rotate="149.8">i</tspan><tspan x="42.1" y="181.9" class="st2 st3" rotate="164.9">n</tspan><tspan x="18.3" y="187.5" class="st2 st3" rotate="179.7">g</tspan><tspan x="-6.2" y="186.7" class="st2 st3" rotate="-165.2"> </tspan><tspan x="-29.8" y="179.7" class="st2 st3" rotate="-150.2">c</tspan><tspan x="-50.6" y="166.8" class="st2 st3" rotate="-135.3">o</tspan><tspan x="-67.5" y="148.9" class="st2 st3" rotate="-120.4">n</tspan><tspan x="-79.1" y="127.2" class="st2 st3" rotate="-105.2">s</tspan><tspan x="-84.8" y="103.4" class="st2 st3" rotate="-90.5">c</tspan><tspan x="-84.1" y="78.9" class="st2 st3" rotate="-75.4">i</tspan><tspan x="-77.1" y="55.3" class="st2 st3" rotate="-60.4">o</tspan><tspan x="-64.2" y="34.4" class="st2 st3" rotate="-45.5">u</tspan><tspan x="-46.4" y="17.5" class="st2 st3" rotate="-30.5">s</tspan><tspan x="-24.8" y="5.8" class="st2 st3" rotate="-15.4"> </tspan></text>
 </g>
-<g id="loading_logic">
-	<path class="st0" d="M454.3,287.3L454.3,287.3L400,400V275C419.5,275,437.9,279.4,454.3,287.3z"/>
-	<path class="st0" d="M497.8,322L497.8,322L400,400l54.2-112.6l0-0.1C471.3,295.5,486.1,307.5,497.8,322z"/>
-	<path class="st0" d="M521.9,372.2L521.9,372.2L400,400l97.7-77.9l0,0C509.3,336.5,517.7,353.5,521.9,372.2z"/>
-	<path class="st0" d="M521.9,372.2c2,8.9,3.1,18.3,3.1,27.8s-1.1,18.9-3.1,27.8l0,0L400,400L521.9,372.2L521.9,372.2z"/>
-	<path class="st0" d="M521.9,427.8L521.9,427.8c-4.2,18.6-12.6,35.7-24.1,50.1l0,0L400,400L521.9,427.8z"/>
-	<path class="st0" d="M497.7,477.9L497.7,477.9c-11.6,14.6-26.5,26.5-43.5,34.7l0,0L400,400L497.7,477.9z"/>
-	<path class="st0" d="M454.2,512.6L454.2,512.6c-16.4,7.9-34.8,12.4-54.2,12.4V400L454.2,512.6z"/>
-	<path class="st0" d="M400,400v125c-19.5,0-37.9-4.4-54.3-12.3l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-54.2,112.6l0,0c-17-8.2-31.8-20.1-43.5-34.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-97.7,77.9l0,0c-11.5-14.4-19.9-31.5-24.1-50.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-121.9,27.8l0,0c-2-8.9-3.1-18.3-3.1-27.8s1.1-18.9,3.1-27.8l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-121.9-27.8l0,0c4.2-18.6,12.6-35.7,24.1-50.1l0,0L400,400z"/>
-	<path class="st0" d="M345.8,287.4L400,400l-97.7-77.9l0,0C313.9,307.5,328.7,295.5,345.8,287.4L345.8,287.4z"/>
-	<path class="st0" d="M400,275v125l-54.2-112.6l0-0.1C362.1,279.4,380.5,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9754 0.2206 -0.2206 0.9754 411.8945 306.5913)"><tspan x="0" y="0" class="st2 st3">l</tspan><tspan x="41.4" y="5.3" class="st2 st3" rotate="25.6">o</tspan><tspan x="76.3" y="27.9" class="st2 st3" rotate="51.1">a</tspan><tspan x="97.4" y="64" class="st2 st3" rotate="71.3">d</tspan><tspan x="102.5" y="104.8" class="st2 st3" rotate="102.3">i</tspan><tspan x="88.6" y="144" class="st2 st3" rotate="127.8">n</tspan><tspan x="59.1" y="173.5" class="st2 st3" rotate="153.4">g</tspan><tspan x="19.9" y="187.3" class="st2 st3" rotate="178.9"> </tspan><tspan x="-21.6" y="182.8" class="st2 st3" rotate="-155.5">l</tspan><tspan x="-57" y="160.9" class="st2 st3" rotate="-130">o</tspan><tspan x="-79.7" y="125.5" class="st2 st3" rotate="-104">g</tspan><tspan x="-84.7" y="84.5" class="st2 st3" rotate="-78.9">i</tspan><tspan x="-71.6" y="45" class="st2 st3" rotate="-53.4">c</tspan><tspan x="-42.6" y="15" class="st2 st3" rotate="-27.7"> </tspan></text>
+<g id="loading_logic" class="ring">
+  <path class="st0" d="M454.3,287.3L454.3,287.3L400,400V275C419.5,275,437.9,279.4,454.3,287.3z"/>
+  <path class="st0" d="M497.8,322L497.8,322L400,400l54.2-112.6l0-0.1C471.3,295.5,486.1,307.5,497.8,322z"/>
+  <path class="st0" d="M521.9,372.2L521.9,372.2L400,400l97.7-77.9l0,0C509.3,336.5,517.7,353.5,521.9,372.2z"/>
+  <path class="st0" d="M521.9,372.2c2,8.9,3.1,18.3,3.1,27.8s-1.1,18.9-3.1,27.8l0,0L400,400L521.9,372.2L521.9,372.2z"/>
+  <path class="st0" d="M521.9,427.8L521.9,427.8c-4.2,18.6-12.6,35.7-24.1,50.1l0,0L400,400L521.9,427.8z"/>
+  <path class="st0" d="M497.7,477.9L497.7,477.9c-11.6,14.6-26.5,26.5-43.5,34.7l0,0L400,400L497.7,477.9z"/>
+  <path class="st0" d="M454.2,512.6L454.2,512.6c-16.4,7.9-34.8,12.4-54.2,12.4V400L454.2,512.6z"/>
+  <path class="st0" d="M400,400v125c-19.5,0-37.9-4.4-54.3-12.3l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-54.2,112.6l0,0c-17-8.2-31.8-20.1-43.5-34.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-97.7,77.9l0,0c-11.5-14.4-19.9-31.5-24.1-50.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-121.9,27.8l0,0c-2-8.9-3.1-18.3-3.1-27.8s1.1-18.9,3.1-27.8l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-121.9-27.8l0,0c4.2-18.6,12.6-35.7,24.1-50.1l0,0L400,400z"/>
+  <path class="st0" d="M345.8,287.4L400,400l-97.7-77.9l0,0C313.9,307.5,328.7,295.5,345.8,287.4L345.8,287.4z"/>
+  <path class="st0" d="M400,275v125l-54.2-112.6l0-0.1C362.1,279.4,380.5,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9754 0.2206 -0.2206 0.9754 411.8945 306.5913)"><tspan x="0" y="0" class="st2 st3">l</tspan><tspan x="41.4" y="5.3" class="st2 st3" rotate="25.6">o</tspan><tspan x="76.3" y="27.9" class="st2 st3" rotate="51.1">a</tspan><tspan x="97.4" y="64" class="st2 st3" rotate="71.3">d</tspan><tspan x="102.5" y="104.8" class="st2 st3" rotate="102.3">i</tspan><tspan x="88.6" y="144" class="st2 st3" rotate="127.8">n</tspan><tspan x="59.1" y="173.5" class="st2 st3" rotate="153.4">g</tspan><tspan x="19.9" y="187.3" class="st2 st3" rotate="178.9"> </tspan><tspan x="-21.6" y="182.8" class="st2 st3" rotate="-155.5">l</tspan><tspan x="-57" y="160.9" class="st2 st3" rotate="-130">o</tspan><tspan x="-79.7" y="125.5" class="st2 st3" rotate="-104">g</tspan><tspan x="-84.7" y="84.5" class="st2 st3" rotate="-78.9">i</tspan><tspan x="-71.6" y="45" class="st2 st3" rotate="-53.4">c</tspan><tspan x="-42.6" y="15" class="st2 st3" rotate="-27.7"> </tspan></text>
 </g>
-<g id="accessing_operation_systems">
-	<path class="st0" d="M427.8,278.1L427.8,278.1L400,400V275C409.6,275,418.9,276.1,427.8,278.1z"/>
-	<path class="st0" d="M454.3,287.3L454.3,287.3L400,400l27.8-121.9l0,0C437.1,280.2,445.9,283.3,454.3,287.3z"/>
-	<path class="st0" d="M478,302.2L478,302.2L400,400l54.2-112.6l0-0.1C462.7,291.4,470.7,296.4,478,302.2z"/>
-	<path class="st0" d="M497.8,322L497.8,322L400,400l77.9-97.7l0,0C485.3,308.1,491.9,314.7,497.8,322z"/>
-	<path class="st0" d="M512.7,345.7L512.7,345.7L400,400l97.7-77.9l0,0C503.6,329.3,508.6,337.3,512.7,345.7z"/>
-	<path class="st0" d="M521.9,372.2L521.9,372.2L400,400l112.6-54.2l0,0C516.7,354.1,519.8,362.9,521.9,372.2z"/>
-	<path class="st0" d="M525,400H400l121.9-27.8l0,0C523.9,381.1,525,390.4,525,400z"/>
-	<path class="st0" d="M400,400h125c0,9.6-1.1,18.9-3.1,27.8l0,0L400,400z"/>
-	<path class="st0" d="M521.9,427.8L521.9,427.8c-2.1,9.3-5.2,18.1-9.2,26.5l0,0L400,400L521.9,427.8z"/>
-	<path class="st0" d="M512.6,454.2L512.6,454.2c-4,8.5-9.1,16.4-14.9,23.7l0,0L400,400L512.6,454.2z"/>
-	<path class="st0" d="M497.7,477.9L497.7,477.9c-5.8,7.3-12.5,14-19.8,19.8l0,0L400,400L497.7,477.9z"/>
-	<path class="st0" d="M477.9,497.7L477.9,497.7c-7.3,5.8-15.2,10.8-23.7,14.9l0,0L400,400L477.9,497.7z"/>
-	<path class="st0" d="M454.2,512.6L454.2,512.6c-8.3,4.1-17.2,7.2-26.4,9.3l0,0L400,400L454.2,512.6z"/>
-	<path class="st0" d="M427.8,521.9L427.8,521.9c-8.9,2.1-18.2,3.1-27.8,3.1V400L427.8,521.9z"/>
-	<path class="st0" d="M400,400v125c-9.6,0-18.9-1.1-27.8-3.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-27.8,121.9l0,0c-9.2-2.1-18.1-5.2-26.4-9.2l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-54.2,112.6l0,0c-8.5-4.1-16.4-9.1-23.7-14.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-77.9,97.7l0,0c-7.3-5.8-14-12.5-19.8-19.8l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-97.7,77.9l0,0c-5.8-7.3-10.8-15.2-14.9-23.7l0.1,0L400,400z"/>
-	<path class="st0" d="M400,400l-112.6,54.2l-0.1,0c-4-8.3-7.1-17.2-9.2-26.4l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-121.9,27.8l0,0c-2-8.9-3.1-18.3-3.1-27.8H400z"/>
-	<path class="st0" d="M400,400H275c0-9.6,1.1-18.9,3.1-27.8l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-121.9-27.8l0,0c2.1-9.2,5.2-18.1,9.2-26.4l0.1,0L400,400z"/>
-	<path class="st0" d="M400,400l-112.6-54.2l-0.1,0c4.1-8.5,9.1-16.4,14.9-23.7l0,0L400,400z"/>
-	<path class="st0" d="M322.1,302.3L400,400l-97.7-77.9l0,0C308.1,314.7,314.7,308.1,322.1,302.3L322.1,302.3z"/>
-	<path class="st0" d="M345.8,287.4L400,400l-77.9-97.7l0,0C329.3,296.4,337.3,291.4,345.8,287.4L345.8,287.4z"/>
-	<path class="st0" d="M372.2,278.1L400,400l-54.2-112.6l0-0.1C354.1,283.3,362.9,280.2,372.2,278.1L372.2,278.1z"/>
-	<path class="st0" d="M400,275v125l-27.8-121.9l0,0C381.1,276.1,390.4,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9939 0.1104 -0.1104 0.9939 401.4941 305.8311)"><tspan x="0" y="0" class="st2 st3">a</tspan><tspan x="21.1" y="0.3" class="st2 st3" rotate="13">c</tspan><tspan x="41.6" y="5.4" class="st2 st3" rotate="25.9">c</tspan><tspan x="60.5" y="14.9" class="st2 st3" rotate="38.7">e</tspan><tspan x="76.7" y="28.4" class="st2 st3" rotate="51.5">s</tspan><tspan x="89.6" y="45.1" class="st2 st3" rotate="64.4">s</tspan><tspan x="98.4" y="64.3" class="st2 st3" rotate="77.4">i</tspan><tspan x="102.7" y="84.9" class="st2 st3" rotate="90">n</tspan><tspan x="102.3" y="106" class="st2 st3" rotate="103">g</tspan><tspan x="97.2" y="126.5" class="st2 st3" rotate="115.9"> </tspan><tspan x="87.7" y="145.4" class="st2 st3" rotate="128.7">o</tspan><tspan x="74.2" y="161.6" class="st2 st3" rotate="141.5">p</tspan><tspan x="57.5" y="174.5" class="st2 st3" rotate="154.5">e</tspan><tspan x="38.3" y="183.3" class="st2 st3" rotate="167.4">r</tspan><tspan x="17.7" y="187.5" class="st2 st3" rotate="-179.9">a</tspan><tspan x="-3.4" y="187.2" class="st2 st3" rotate="-167">t</tspan><tspan x="-23.9" y="182" class="st2 st3" rotate="-154">i</tspan><tspan x="-42.7" y="172.5" class="st2 st3" rotate="-141.2">o</tspan><tspan x="-59" y="159" class="st2 st3" rotate="-128.4">n</tspan><tspan x="-71.8" y="142.3" class="st2 st3" rotate="-115.5"> </tspan><tspan x="-80.6" y="123.1" class="st2 st3" rotate="-102.6">s</tspan><tspan x="-84.9" y="102.5" class="st2 st3" rotate="-89.9">y</tspan><tspan x="-84.5" y="81.3" class="st2 st3" rotate="-76.9">s</tspan><tspan x="-79.3" y="60.8" class="st2 st3" rotate="-64">t</tspan><tspan x="-69.8" y="42" class="st2 st3" rotate="-51.2">e</tspan><tspan x="-56.3" y="25.8" class="st2 st3" rotate="-38.4">m</tspan><tspan x="-39.6" y="13" class="st2 st3" rotate="-25.5">s</tspan><tspan x="-20.3" y="4.2" class="st2 st3" rotate="-12.5"> </tspan></text>
+<g id="accessing_operation_systems" class="ring"> -->
+  <path class="st0" d="M427.8,278.1L427.8,278.1L400,400V275C409.6,275,418.9,276.1,427.8,278.1z"/>
+  <path class="st0" d="M454.3,287.3L454.3,287.3L400,400l27.8-121.9l0,0C437.1,280.2,445.9,283.3,454.3,287.3z"/>
+  <path class="st0" d="M478,302.2L478,302.2L400,400l54.2-112.6l0-0.1C462.7,291.4,470.7,296.4,478,302.2z"/>
+  <path class="st0" d="M497.8,322L497.8,322L400,400l77.9-97.7l0,0C485.3,308.1,491.9,314.7,497.8,322z"/>
+  <path class="st0" d="M512.7,345.7L512.7,345.7L400,400l97.7-77.9l0,0C503.6,329.3,508.6,337.3,512.7,345.7z"/>
+  <path class="st0" d="M521.9,372.2L521.9,372.2L400,400l112.6-54.2l0,0C516.7,354.1,519.8,362.9,521.9,372.2z"/>
+  <path class="st0" d="M525,400H400l121.9-27.8l0,0C523.9,381.1,525,390.4,525,400z"/>
+  <path class="st0" d="M400,400h125c0,9.6-1.1,18.9-3.1,27.8l0,0L400,400z"/>
+  <path class="st0" d="M521.9,427.8L521.9,427.8c-2.1,9.3-5.2,18.1-9.2,26.5l0,0L400,400L521.9,427.8z"/>
+  <path class="st0" d="M512.6,454.2L512.6,454.2c-4,8.5-9.1,16.4-14.9,23.7l0,0L400,400L512.6,454.2z"/>
+  <path class="st0" d="M497.7,477.9L497.7,477.9c-5.8,7.3-12.5,14-19.8,19.8l0,0L400,400L497.7,477.9z"/>
+  <path class="st0" d="M477.9,497.7L477.9,497.7c-7.3,5.8-15.2,10.8-23.7,14.9l0,0L400,400L477.9,497.7z"/>
+  <path class="st0" d="M454.2,512.6L454.2,512.6c-8.3,4.1-17.2,7.2-26.4,9.3l0,0L400,400L454.2,512.6z"/>
+  <path class="st0" d="M427.8,521.9L427.8,521.9c-8.9,2.1-18.2,3.1-27.8,3.1V400L427.8,521.9z"/>
+  <path class="st0" d="M400,400v125c-9.6,0-18.9-1.1-27.8-3.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-27.8,121.9l0,0c-9.2-2.1-18.1-5.2-26.4-9.2l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-54.2,112.6l0,0c-8.5-4.1-16.4-9.1-23.7-14.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-77.9,97.7l0,0c-7.3-5.8-14-12.5-19.8-19.8l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-97.7,77.9l0,0c-5.8-7.3-10.8-15.2-14.9-23.7l0.1,0L400,400z"/>
+  <path class="st0" d="M400,400l-112.6,54.2l-0.1,0c-4-8.3-7.1-17.2-9.2-26.4l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-121.9,27.8l0,0c-2-8.9-3.1-18.3-3.1-27.8H400z"/>
+  <path class="st0" d="M400,400H275c0-9.6,1.1-18.9,3.1-27.8l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-121.9-27.8l0,0c2.1-9.2,5.2-18.1,9.2-26.4l0.1,0L400,400z"/>
+  <path class="st0" d="M400,400l-112.6-54.2l-0.1,0c4.1-8.5,9.1-16.4,14.9-23.7l0,0L400,400z"/>
+  <path class="st0" d="M322.1,302.3L400,400l-97.7-77.9l0,0C308.1,314.7,314.7,308.1,322.1,302.3L322.1,302.3z"/>
+  <path class="st0" d="M345.8,287.4L400,400l-77.9-97.7l0,0C329.3,296.4,337.3,291.4,345.8,287.4L345.8,287.4z"/>
+  <path class="st0" d="M372.2,278.1L400,400l-54.2-112.6l0-0.1C354.1,283.3,362.9,280.2,372.2,278.1L372.2,278.1z"/>
+  <path class="st0" d="M400,275v125l-27.8-121.9l0,0C381.1,276.1,390.4,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9939 0.1104 -0.1104 0.9939 401.4941 305.8311)"><tspan x="0" y="0" class="st2 st3">a</tspan><tspan x="21.1" y="0.3" class="st2 st3" rotate="13">c</tspan><tspan x="41.6" y="5.4" class="st2 st3" rotate="25.9">c</tspan><tspan x="60.5" y="14.9" class="st2 st3" rotate="38.7">e</tspan><tspan x="76.7" y="28.4" class="st2 st3" rotate="51.5">s</tspan><tspan x="89.6" y="45.1" class="st2 st3" rotate="64.4">s</tspan><tspan x="98.4" y="64.3" class="st2 st3" rotate="77.4">i</tspan><tspan x="102.7" y="84.9" class="st2 st3" rotate="90">n</tspan><tspan x="102.3" y="106" class="st2 st3" rotate="103">g</tspan><tspan x="97.2" y="126.5" class="st2 st3" rotate="115.9"> </tspan><tspan x="87.7" y="145.4" class="st2 st3" rotate="128.7">o</tspan><tspan x="74.2" y="161.6" class="st2 st3" rotate="141.5">p</tspan><tspan x="57.5" y="174.5" class="st2 st3" rotate="154.5">e</tspan><tspan x="38.3" y="183.3" class="st2 st3" rotate="167.4">r</tspan><tspan x="17.7" y="187.5" class="st2 st3" rotate="-179.9">a</tspan><tspan x="-3.4" y="187.2" class="st2 st3" rotate="-167">t</tspan><tspan x="-23.9" y="182" class="st2 st3" rotate="-154">i</tspan><tspan x="-42.7" y="172.5" class="st2 st3" rotate="-141.2">o</tspan><tspan x="-59" y="159" class="st2 st3" rotate="-128.4">n</tspan><tspan x="-71.8" y="142.3" class="st2 st3" rotate="-115.5"> </tspan><tspan x="-80.6" y="123.1" class="st2 st3" rotate="-102.6">s</tspan><tspan x="-84.9" y="102.5" class="st2 st3" rotate="-89.9">y</tspan><tspan x="-84.5" y="81.3" class="st2 st3" rotate="-76.9">s</tspan><tspan x="-79.3" y="60.8" class="st2 st3" rotate="-64">t</tspan><tspan x="-69.8" y="42" class="st2 st3" rotate="-51.2">e</tspan><tspan x="-56.3" y="25.8" class="st2 st3" rotate="-38.4">m</tspan><tspan x="-39.6" y="13" class="st2 st3" rotate="-25.5">s</tspan><tspan x="-20.3" y="4.2" class="st2 st3" rotate="-12.5"> </tspan></text>
 </g>
-<g id="copying_from_secondary_memory">
-	<path class="st0" d="M426,277.7L426,277.7L400,400V275C408.9,275,417.6,275.9,426,277.7z"/>
-	<path class="st0" d="M450.9,285.8L450.9,285.8L400,400l26-122.3l0,0C434.6,279.5,443,282.2,450.9,285.8z"/>
-	<path class="st0" d="M473.5,298.8L473.5,298.8L400,400l50.8-114.2l0,0C458.9,289.3,466.5,293.7,473.5,298.8z"/>
-	<path class="st0" d="M492.9,316.3L492.9,316.3L400,400l73.5-101.1l0,0C480.6,304,487.1,309.9,492.9,316.3z"/>
-	<path class="st0" d="M508.3,337.5L508.3,337.5L400,400l92.9-83.6l0,0C498.8,322.8,503.9,329.9,508.3,337.5z"/>
-	<path class="st0" d="M518.9,361.4L518.9,361.4L400,400l108.3-62.5l0,0C512.6,345,516.2,353,518.9,361.4z"/>
-	<path class="st0" d="M524.3,386.9L524.3,386.9L400,400l118.9-38.6l0,0C521.6,369.5,523.4,378.1,524.3,386.9z"/>
-	<path class="st0" d="M524.3,386.9c0.5,4.3,0.7,8.7,0.7,13.1s-0.2,8.8-0.7,13.1h0L400,400L524.3,386.9L524.3,386.9z"/>
-	<path class="st0" d="M524.3,413.1L524.3,413.1c-0.9,8.8-2.7,17.4-5.4,25.6l0,0L400,400L524.3,413.1z"/>
-	<path class="st0" d="M518.9,438.6L518.9,438.6c-2.7,8.4-6.2,16.4-10.6,23.9l0,0L400,400L518.9,438.6z"/>
-	<path class="st0" d="M508.3,462.5L508.3,462.5c-4.3,7.6-9.5,14.7-15.3,21.2l0,0L400,400L508.3,462.5z"/>
-	<path class="st0" d="M492.9,483.6L492.9,483.6c-5.8,6.5-12.3,12.4-19.4,17.5l0,0L400,400L492.9,483.6z"/>
-	<path class="st0" d="M473.5,501.1L473.5,501.1c-7,5.1-14.6,9.5-22.6,13.1l0,0L400,400L473.5,501.1z"/>
-	<path class="st0" d="M450.8,514.2L450.8,514.2c-7.9,3.6-16.2,6.3-24.9,8.1l0,0L400,400L450.8,514.2z"/>
-	<path class="st0" d="M426,522.3L426,522.3c-8.4,1.8-17.1,2.7-26,2.7V400L426,522.3z"/>
-	<path class="st0" d="M400,400v125c-8.9,0-17.6-0.9-26-2.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-26,122.3l0,0c-8.7-1.8-17-4.5-24.9-8.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-50.8,114.2l0,0c-8-3.6-15.6-8-22.6-13.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-73.5,101.1l0,0c-7.1-5.1-13.6-11-19.4-17.5l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-92.9,83.6l0,0c-5.8-6.5-11-13.6-15.4-21.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3,62.5l0,0c-4.3-7.5-7.9-15.5-10.6-23.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-118.9,38.6l0,0c-2.7-8.2-4.5-16.7-5.4-25.6h0L400,400z"/>
-	<path class="st0" d="M400,400l-124.3,13.1h0c-0.4-4.3-0.7-8.7-0.7-13.1s0.2-8.8,0.7-13.1h0L400,400z"/>
-	<path class="st0" d="M400,400l-124.3-13.1h0c0.9-8.8,2.7-17.4,5.4-25.6l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-118.9-38.6l0,0c2.7-8.4,6.3-16.4,10.6-23.9l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-108.3-62.5l0,0c4.4-7.6,9.5-14.7,15.4-21.1l0,0L400,400z"/>
-	<path class="st0" d="M326.5,298.9L400,400l-92.9-83.6l0,0C312.9,309.9,319.4,304,326.5,298.9L326.5,298.9z"/>
-	<path class="st0" d="M349.2,285.8L400,400l-73.5-101.1l0,0C333.5,293.7,341.1,289.3,349.2,285.8L349.2,285.8z"/>
-	<path class="st0" d="M374,277.7L400,400l-50.8-114.2l0,0C357,282.2,365.4,279.5,374,277.7L374,277.7z"/>
-	<path class="st0" d="M400,275v125l-26-122.3l0,0C382.4,275.9,391.1,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9948 0.1018 -0.1018 0.9948 400.6763 305.8223)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="19.7" y="0.2" class="st2 st3" rotate="12.1">o</tspan><tspan x="39" y="4.5" class="st2 st3" rotate="24.2">p</tspan><tspan x="56.9" y="12.7" class="st2 st3" rotate="36.1">y</tspan><tspan x="72.7" y="24.4" class="st2 st3" rotate="48.1">i</tspan><tspan x="85.7" y="39.2" class="st2 st3" rotate="60.1">n</tspan><tspan x="95.4" y="56.4" class="st2 st3" rotate="72.2">g</tspan><tspan x="101.4" y="75.4" class="st2 st3" rotate="85.1"> </tspan><tspan x="103.1" y="94.9" class="st2 st3" rotate="96.1">f</tspan><tspan x="100.8" y="114.5" class="st2 st3" rotate="108.2">r</tspan><tspan x="94.5" y="133.1" class="st2 st3" rotate="120.3">o</tspan><tspan x="84.4" y="150" class="st2 st3" rotate="132.2">m</tspan><tspan x="71.1" y="164.5" class="st2 st3" rotate="144.2"> </tspan><tspan x="55" y="176" class="st2 st3" rotate="156.3">s</tspan><tspan x="36.8" y="183.7" class="st2 st3" rotate="168.3">e</tspan><tspan x="17.5" y="187.5" class="st2 st3" rotate="-179.8">c</tspan><tspan x="-2.2" y="187.3" class="st2 st3" rotate="-167.7">o</tspan><tspan x="-21.4" y="182.9" class="st2 st3" rotate="-155.7">n</tspan><tspan x="-39.3" y="174.7" class="st2 st3" rotate="-143.7">d</tspan><tspan x="-55.1" y="162.8" class="st2 st3" rotate="-131.7">a</tspan><tspan x="-68.1" y="148" class="st2 st3" rotate="-119.7">r</tspan><tspan x="-77.7" y="130.8" class="st2 st3" rotate="-107.6">y</tspan><tspan x="-83.6" y="111.9" class="st2 st3" rotate="-94.9"> </tspan><tspan x="-85.3" y="92.3" class="st2 st3" rotate="-83.7">m</tspan><tspan x="-82.9" y="72.8" class="st2 st3" rotate="-71.6">e</tspan><tspan x="-76.5" y="54.1" class="st2 st3" rotate="-59.6">m</tspan><tspan x="-66.4" y="37.2" class="st2 st3" rotate="-47.6">o</tspan><tspan x="-53" y="22.8" class="st2 st3" rotate="-35.7">r</tspan><tspan x="-36.9" y="11.4" class="st2 st3" rotate="-23.6">y</tspan><tspan x="-18.7" y="3.7" class="st2 st3" rotate="-11.5"> </tspan></text>
+<g id="copying_from_secondary_memory" class="ring">
+  <path class="st0" d="M426,277.7L426,277.7L400,400V275C408.9,275,417.6,275.9,426,277.7z"/>
+  <path class="st0" d="M450.9,285.8L450.9,285.8L400,400l26-122.3l0,0C434.6,279.5,443,282.2,450.9,285.8z"/>
+  <path class="st0" d="M473.5,298.8L473.5,298.8L400,400l50.8-114.2l0,0C458.9,289.3,466.5,293.7,473.5,298.8z"/>
+  <path class="st0" d="M492.9,316.3L492.9,316.3L400,400l73.5-101.1l0,0C480.6,304,487.1,309.9,492.9,316.3z"/>
+  <path class="st0" d="M508.3,337.5L508.3,337.5L400,400l92.9-83.6l0,0C498.8,322.8,503.9,329.9,508.3,337.5z"/>
+  <path class="st0" d="M518.9,361.4L518.9,361.4L400,400l108.3-62.5l0,0C512.6,345,516.2,353,518.9,361.4z"/>
+  <path class="st0" d="M524.3,386.9L524.3,386.9L400,400l118.9-38.6l0,0C521.6,369.5,523.4,378.1,524.3,386.9z"/>
+  <path class="st0" d="M524.3,386.9c0.5,4.3,0.7,8.7,0.7,13.1s-0.2,8.8-0.7,13.1h0L400,400L524.3,386.9L524.3,386.9z"/>
+  <path class="st0" d="M524.3,413.1L524.3,413.1c-0.9,8.8-2.7,17.4-5.4,25.6l0,0L400,400L524.3,413.1z"/>
+  <path class="st0" d="M518.9,438.6L518.9,438.6c-2.7,8.4-6.2,16.4-10.6,23.9l0,0L400,400L518.9,438.6z"/>
+  <path class="st0" d="M508.3,462.5L508.3,462.5c-4.3,7.6-9.5,14.7-15.3,21.2l0,0L400,400L508.3,462.5z"/>
+  <path class="st0" d="M492.9,483.6L492.9,483.6c-5.8,6.5-12.3,12.4-19.4,17.5l0,0L400,400L492.9,483.6z"/>
+  <path class="st0" d="M473.5,501.1L473.5,501.1c-7,5.1-14.6,9.5-22.6,13.1l0,0L400,400L473.5,501.1z"/>
+  <path class="st0" d="M450.8,514.2L450.8,514.2c-7.9,3.6-16.2,6.3-24.9,8.1l0,0L400,400L450.8,514.2z"/>
+  <path class="st0" d="M426,522.3L426,522.3c-8.4,1.8-17.1,2.7-26,2.7V400L426,522.3z"/>
+  <path class="st0" d="M400,400v125c-8.9,0-17.6-0.9-26-2.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-26,122.3l0,0c-8.7-1.8-17-4.5-24.9-8.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-50.8,114.2l0,0c-8-3.6-15.6-8-22.6-13.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-73.5,101.1l0,0c-7.1-5.1-13.6-11-19.4-17.5l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-92.9,83.6l0,0c-5.8-6.5-11-13.6-15.4-21.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3,62.5l0,0c-4.3-7.5-7.9-15.5-10.6-23.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-118.9,38.6l0,0c-2.7-8.2-4.5-16.7-5.4-25.6h0L400,400z"/>
+  <path class="st0" d="M400,400l-124.3,13.1h0c-0.4-4.3-0.7-8.7-0.7-13.1s0.2-8.8,0.7-13.1h0L400,400z"/>
+  <path class="st0" d="M400,400l-124.3-13.1h0c0.9-8.8,2.7-17.4,5.4-25.6l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-118.9-38.6l0,0c2.7-8.4,6.3-16.4,10.6-23.9l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-108.3-62.5l0,0c4.4-7.6,9.5-14.7,15.4-21.1l0,0L400,400z"/>
+  <path class="st0" d="M326.5,298.9L400,400l-92.9-83.6l0,0C312.9,309.9,319.4,304,326.5,298.9L326.5,298.9z"/>
+  <path class="st0" d="M349.2,285.8L400,400l-73.5-101.1l0,0C333.5,293.7,341.1,289.3,349.2,285.8L349.2,285.8z"/>
+  <path class="st0" d="M374,277.7L400,400l-50.8-114.2l0,0C357,282.2,365.4,279.5,374,277.7L374,277.7z"/>
+  <path class="st0" d="M400,275v125l-26-122.3l0,0C382.4,275.9,391.1,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9948 0.1018 -0.1018 0.9948 400.6763 305.8223)"><tspan x="0" y="0" class="st2 st3">c</tspan><tspan x="19.7" y="0.2" class="st2 st3" rotate="12.1">o</tspan><tspan x="39" y="4.5" class="st2 st3" rotate="24.2">p</tspan><tspan x="56.9" y="12.7" class="st2 st3" rotate="36.1">y</tspan><tspan x="72.7" y="24.4" class="st2 st3" rotate="48.1">i</tspan><tspan x="85.7" y="39.2" class="st2 st3" rotate="60.1">n</tspan><tspan x="95.4" y="56.4" class="st2 st3" rotate="72.2">g</tspan><tspan x="101.4" y="75.4" class="st2 st3" rotate="85.1"> </tspan><tspan x="103.1" y="94.9" class="st2 st3" rotate="96.1">f</tspan><tspan x="100.8" y="114.5" class="st2 st3" rotate="108.2">r</tspan><tspan x="94.5" y="133.1" class="st2 st3" rotate="120.3">o</tspan><tspan x="84.4" y="150" class="st2 st3" rotate="132.2">m</tspan><tspan x="71.1" y="164.5" class="st2 st3" rotate="144.2"> </tspan><tspan x="55" y="176" class="st2 st3" rotate="156.3">s</tspan><tspan x="36.8" y="183.7" class="st2 st3" rotate="168.3">e</tspan><tspan x="17.5" y="187.5" class="st2 st3" rotate="-179.8">c</tspan><tspan x="-2.2" y="187.3" class="st2 st3" rotate="-167.7">o</tspan><tspan x="-21.4" y="182.9" class="st2 st3" rotate="-155.7">n</tspan><tspan x="-39.3" y="174.7" class="st2 st3" rotate="-143.7">d</tspan><tspan x="-55.1" y="162.8" class="st2 st3" rotate="-131.7">a</tspan><tspan x="-68.1" y="148" class="st2 st3" rotate="-119.7">r</tspan><tspan x="-77.7" y="130.8" class="st2 st3" rotate="-107.6">y</tspan><tspan x="-83.6" y="111.9" class="st2 st3" rotate="-94.9"> </tspan><tspan x="-85.3" y="92.3" class="st2 st3" rotate="-83.7">m</tspan><tspan x="-82.9" y="72.8" class="st2 st3" rotate="-71.6">e</tspan><tspan x="-76.5" y="54.1" class="st2 st3" rotate="-59.6">m</tspan><tspan x="-66.4" y="37.2" class="st2 st3" rotate="-47.6">o</tspan><tspan x="-53" y="22.8" class="st2 st3" rotate="-35.7">r</tspan><tspan x="-36.9" y="11.4" class="st2 st3" rotate="-23.6">y</tspan><tspan x="-18.7" y="3.7" class="st2 st3" rotate="-11.5"> </tspan></text>
 </g>
-<g id="pasting_in_primary_memory">
-	<path class="st0" d="M429.9,278.6L429.9,278.6L400,400V275C410.3,275,420.3,276.2,429.9,278.6z"/>
-	<path class="st0" d="M458.1,289.3L458.1,289.3L400,400l29.9-121.4l0,0C439.8,281,449.3,284.6,458.1,289.3z"/>
-	<path class="st0" d="M482.9,306.4L482.9,306.4L400,400l58.1-110.7l0,0C467.1,294,475.4,299.8,482.9,306.4z"/>
-	<path class="st0" d="M502.9,329L502.9,329L400,400l82.9-93.6l0,0C490.4,313.1,497.2,320.7,502.9,329z"/>
-	<path class="st0" d="M516.9,355.7L516.9,355.7L400,400l102.9-71l0,0C508.6,337.2,513.3,346.1,516.9,355.7z"/>
-	<path class="st0" d="M524.1,384.9L524.1,384.9L400,400l116.9-44.3l0,0C520.4,364.9,522.9,374.7,524.1,384.9z"/>
-	<path class="st0" d="M524.1,384.9c0.6,4.9,0.9,10,0.9,15.1s-0.3,10.1-0.9,15.1h0L400,400L524.1,384.9L524.1,384.9z"/>
-	<path class="st0" d="M524.1,415.1L524.1,415.1c-1.2,10.2-3.7,20-7.2,29.3l0,0L400,400L524.1,415.1z"/>
-	<path class="st0" d="M516.9,444.3L516.9,444.3c-3.5,9.5-8.3,18.5-14,26.7l0,0L400,400L516.9,444.3z"/>
-	<path class="st0" d="M502.9,471L502.9,471c-5.7,8.3-12.4,15.9-20,22.6l0,0L400,400L502.9,471z"/>
-	<path class="st0" d="M482.9,493.6L482.9,493.6c-7.5,6.7-15.8,12.5-24.8,17.2l0,0L400,400L482.9,493.6z"/>
-	<path class="st0" d="M458.1,510.7L458.1,510.7c-8.8,4.7-18.2,8.3-28.2,10.7l0,0L400,400L458.1,510.7z"/>
-	<path class="st0" d="M429.9,521.4L429.9,521.4c-9.6,2.4-19.6,3.6-29.9,3.6V400L429.9,521.4z"/>
-	<path class="st0" d="M400,400v125c-10.3,0-20.3-1.2-29.9-3.6l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-29.9,121.4l0,0c-9.9-2.4-19.4-6-28.2-10.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-58.1,110.7l0,0c-9-4.7-17.3-10.5-24.8-17.1l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-82.9,93.6l0,0c-7.5-6.7-14.3-14.3-20-22.6l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-102.9,71l0,0c-5.7-8.2-10.4-17.2-14-26.7l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-116.9,44.3l0,0c-3.5-9.3-6-19.1-7.2-29.3h0L400,400z"/>
-	<path class="st0" d="M400,400l-124.1,15.1h0c-0.6-4.9-0.9-10-0.9-15.1s0.3-10.1,0.9-15.1h0L400,400z"/>
-	<path class="st0" d="M400,400l-124.1-15.1h0c1.2-10.2,3.7-20,7.2-29.3l0,0L400,400z"/>
-	<path class="st0" d="M400,400l-116.9-44.3l0,0c3.6-9.5,8.3-18.5,14-26.7l0,0L400,400z"/>
-	<path class="st0" d="M317.1,306.4L400,400l-102.9-71l0,0C302.8,320.7,309.6,313.1,317.1,306.4L317.1,306.4z"/>
-	<path class="st0" d="M341.9,289.3L400,400l-82.9-93.6l0,0C324.6,299.8,332.9,294,341.9,289.3L341.9,289.3z"/>
-	<path class="st0" d="M370.1,278.6L400,400l-58.1-110.7l0,0C350.7,284.6,360.2,281,370.1,278.6L370.1,278.6z"/>
-	<path class="st0" d="M400,275v125l-29.9-121.4l0,0C379.7,276.2,389.7,275,400,275z"/>
-	<circle class="st1" cx="400" cy="400" r="93.8"/>
-	<text transform="matrix(0.9927 0.1202 -0.1202 0.9927 402.4238 305.8491)"><tspan x="0" y="0" class="st2 st3">p</tspan><tspan x="22.7" y="0.6" class="st2 st3" rotate="14">a</tspan><tspan x="44.7" y="6.6" class="st2 st3" rotate="27.9">s</tspan><tspan x="64.5" y="17.7" class="st2 st3" rotate="41.6">t</tspan><tspan x="81.1" y="33.2" class="st2 st3" rotate="55.5">i</tspan><tspan x="93.5" y="52.3" class="st2 st3" rotate="69.4">n</tspan><tspan x="101.1" y="74.1" class="st2 st3" rotate="84">g</tspan><tspan x="103.1" y="96.4" class="st2 st3" rotate="97.1"> </tspan><tspan x="99.7" y="118.9" class="st2 st3" rotate="111">i</tspan><tspan x="91" y="139.9" class="st2 st3" rotate="124.8">n</tspan><tspan x="77.6" y="158.2" class="st2 st3" rotate="138.6"> </tspan><tspan x="60.2" y="172.8" class="st2 st3" rotate="152.5">p</tspan><tspan x="39.7" y="182.8" class="st2 st3" rotate="166.5">r</tspan><tspan x="17.6" y="187.5" class="st2 st3" rotate="-179.8">i</tspan><tspan x="-5.2" y="186.9" class="st2 st3" rotate="-165.9">m</tspan><tspan x="-27.1" y="180.8" class="st2 st3" rotate="-152">a</tspan><tspan x="-46.9" y="169.6" class="st2 st3" rotate="-138.2">r</tspan><tspan x="-63.4" y="154.1" class="st2 st3" rotate="-124.4">y</tspan><tspan x="-75.8" y="135" class="st2 st3" rotate="-110.4"> </tspan><tspan x="-83.3" y="113.5" class="st2 st3" rotate="-96">m</tspan><tspan x="-85.2" y="90.9" class="st2 st3" rotate="-82.8">e</tspan><tspan x="-81.8" y="68.4" class="st2 st3" rotate="-68.8">m</tspan><tspan x="-73.1" y="47.4" class="st2 st3" rotate="-55">o</tspan><tspan x="-59.6" y="29.1" class="st2 st3" rotate="-41.2">r</tspan><tspan x="-42.1" y="14.6" class="st2 st3" rotate="-27.3">y</tspan><tspan x="-21.7" y="4.7" class="st2 st3" rotate="-13.4"> </tspan></text>
+<g id="pasting_in_primary_memory" class="ring">
+  <path class="st0" d="M429.9,278.6L429.9,278.6L400,400V275C410.3,275,420.3,276.2,429.9,278.6z"/>
+  <path class="st0" d="M458.1,289.3L458.1,289.3L400,400l29.9-121.4l0,0C439.8,281,449.3,284.6,458.1,289.3z"/>
+  <path class="st0" d="M482.9,306.4L482.9,306.4L400,400l58.1-110.7l0,0C467.1,294,475.4,299.8,482.9,306.4z"/>
+  <path class="st0" d="M502.9,329L502.9,329L400,400l82.9-93.6l0,0C490.4,313.1,497.2,320.7,502.9,329z"/>
+  <path class="st0" d="M516.9,355.7L516.9,355.7L400,400l102.9-71l0,0C508.6,337.2,513.3,346.1,516.9,355.7z"/>
+  <path class="st0" d="M524.1,384.9L524.1,384.9L400,400l116.9-44.3l0,0C520.4,364.9,522.9,374.7,524.1,384.9z"/>
+  <path class="st0" d="M524.1,384.9c0.6,4.9,0.9,10,0.9,15.1s-0.3,10.1-0.9,15.1h0L400,400L524.1,384.9L524.1,384.9z"/>
+  <path class="st0" d="M524.1,415.1L524.1,415.1c-1.2,10.2-3.7,20-7.2,29.3l0,0L400,400L524.1,415.1z"/>
+  <path class="st0" d="M516.9,444.3L516.9,444.3c-3.5,9.5-8.3,18.5-14,26.7l0,0L400,400L516.9,444.3z"/>
+  <path class="st0" d="M502.9,471L502.9,471c-5.7,8.3-12.4,15.9-20,22.6l0,0L400,400L502.9,471z"/>
+  <path class="st0" d="M482.9,493.6L482.9,493.6c-7.5,6.7-15.8,12.5-24.8,17.2l0,0L400,400L482.9,493.6z"/>
+  <path class="st0" d="M458.1,510.7L458.1,510.7c-8.8,4.7-18.2,8.3-28.2,10.7l0,0L400,400L458.1,510.7z"/>
+  <path class="st0" d="M429.9,521.4L429.9,521.4c-9.6,2.4-19.6,3.6-29.9,3.6V400L429.9,521.4z"/>
+  <path class="st0" d="M400,400v125c-10.3,0-20.3-1.2-29.9-3.6l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-29.9,121.4l0,0c-9.9-2.4-19.4-6-28.2-10.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-58.1,110.7l0,0c-9-4.7-17.3-10.5-24.8-17.1l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-82.9,93.6l0,0c-7.5-6.7-14.3-14.3-20-22.6l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-102.9,71l0,0c-5.7-8.2-10.4-17.2-14-26.7l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-116.9,44.3l0,0c-3.5-9.3-6-19.1-7.2-29.3h0L400,400z"/>
+  <path class="st0" d="M400,400l-124.1,15.1h0c-0.6-4.9-0.9-10-0.9-15.1s0.3-10.1,0.9-15.1h0L400,400z"/>
+  <path class="st0" d="M400,400l-124.1-15.1h0c1.2-10.2,3.7-20,7.2-29.3l0,0L400,400z"/>
+  <path class="st0" d="M400,400l-116.9-44.3l0,0c3.6-9.5,8.3-18.5,14-26.7l0,0L400,400z"/>
+  <path class="st0" d="M317.1,306.4L400,400l-102.9-71l0,0C302.8,320.7,309.6,313.1,317.1,306.4L317.1,306.4z"/>
+  <path class="st0" d="M341.9,289.3L400,400l-82.9-93.6l0,0C324.6,299.8,332.9,294,341.9,289.3L341.9,289.3z"/>
+  <path class="st0" d="M370.1,278.6L400,400l-58.1-110.7l0,0C350.7,284.6,360.2,281,370.1,278.6L370.1,278.6z"/>
+  <path class="st0" d="M400,275v125l-29.9-121.4l0,0C379.7,276.2,389.7,275,400,275z"/>
+  <circle class="st1" cx="400" cy="400" r="93.8"/>
+  <text transform="matrix(0.9927 0.1202 -0.1202 0.9927 402.4238 305.8491)"><tspan x="0" y="0" class="st2 st3">p</tspan><tspan x="22.7" y="0.6" class="st2 st3" rotate="14">a</tspan><tspan x="44.7" y="6.6" class="st2 st3" rotate="27.9">s</tspan><tspan x="64.5" y="17.7" class="st2 st3" rotate="41.6">t</tspan><tspan x="81.1" y="33.2" class="st2 st3" rotate="55.5">i</tspan><tspan x="93.5" y="52.3" class="st2 st3" rotate="69.4">n</tspan><tspan x="101.1" y="74.1" class="st2 st3" rotate="84">g</tspan><tspan x="103.1" y="96.4" class="st2 st3" rotate="97.1"> </tspan><tspan x="99.7" y="118.9" class="st2 st3" rotate="111">i</tspan><tspan x="91" y="139.9" class="st2 st3" rotate="124.8">n</tspan><tspan x="77.6" y="158.2" class="st2 st3" rotate="138.6"> </tspan><tspan x="60.2" y="172.8" class="st2 st3" rotate="152.5">p</tspan><tspan x="39.7" y="182.8" class="st2 st3" rotate="166.5">r</tspan><tspan x="17.6" y="187.5" class="st2 st3" rotate="-179.8">i</tspan><tspan x="-5.2" y="186.9" class="st2 st3" rotate="-165.9">m</tspan><tspan x="-27.1" y="180.8" class="st2 st3" rotate="-152">a</tspan><tspan x="-46.9" y="169.6" class="st2 st3" rotate="-138.2">r</tspan><tspan x="-63.4" y="154.1" class="st2 st3" rotate="-124.4">y</tspan><tspan x="-75.8" y="135" class="st2 st3" rotate="-110.4"> </tspan><tspan x="-83.3" y="113.5" class="st2 st3" rotate="-96">m</tspan><tspan x="-85.2" y="90.9" class="st2 st3" rotate="-82.8">e</tspan><tspan x="-81.8" y="68.4" class="st2 st3" rotate="-68.8">m</tspan><tspan x="-73.1" y="47.4" class="st2 st3" rotate="-55">o</tspan><tspan x="-59.6" y="29.1" class="st2 st3" rotate="-41.2">r</tspan><tspan x="-42.1" y="14.6" class="st2 st3" rotate="-27.3">y</tspan><tspan x="-21.7" y="4.7" class="st2 st3" rotate="-13.4"> </tspan></text>
 </g>
 
 </svg>
 
+    <button type="button" class="close-button invisible">Close window</button>
+
     <script>
-      let sectors = document.getElementsByTagName("path");
-      let letters = document.getElementsByClassName("st2");
-      let counter = 0;
+      const LETTER_DELAY = 200;
+      const CYCLE_DELAY = 1000;
+
+      const closeButton = document.querySelector(".close-button");
+      closeButton.addEventListener("click", () => window.close());
       
-      let interval = null;
+      let rings = document.querySelectorAll(".ring");
+      let sectors = document.querySelectorAll("path");
+      // let letters = document.querySelectorAll(".st2");
+
+      let lettersByRing = Array.from(rings).map(ring => ring.querySelectorAll(".st2"));
+
+      // let counter = 0;
+      let ringIndex = 0;
+      let letterIndex = 0;
+
       function buffer() {
-        if (counter < letters.length) {
-          sectors[counter].classList.add("visible");
-          letters[counter].classList.add("visible");
-          counter++;
-        } else {
-          for (let sector of sectors) {
-            sector.classList.remove("visible");
+        const ring = rings[ringIndex];
+        const ringLetters = lettersByRing[ringIndex];
+        const timeForFullRing = ringLetters.length * LETTER_DELAY;
+        const fadeDuration = timeForFullRing / 2;
+        // const fadeDelay = LETTER_DELAY * letterIndex;
+        const fadeDelay = 0;
+        
+        const letter = ringLetters[letterIndex];
+        letter.classList.add("visible");
+        letter.style.animation = `${fadeDuration}ms linear forwards fade`;
+        // letter.style.animation = `${fadeDuration}ms linear ${fadeDelay}ms forwards fade`;
+        console.log(letter.style.animation);
+
+        letterIndex++;
+
+        if (letterIndex > ringLetters.length - 1) {
+          letterIndex = 0;
+          ringIndex++;
+          if (ringIndex > rings.length - 1) {
+            reset();
           }
-          for (let letter of letters) {
-            letter.classList.remove("visible");
-          }
-          counter = 0;
         }
       }
-      interval = setInterval(buffer, 200);
+
+      function reset() {
+        clearInterval(interval);
+
+        setTimeout(() => {
+          ringIndex = 0;
+
+          lettersByRing.forEach(ringLetters => {
+            ringLetters.forEach(letter => {
+              letter.classList.remove("visible");
+              letter.style.removeProperty("animation");
+            });
+          });
+
+          interval = setInterval(buffer, LETTER_DELAY);
+
+          closeButton.classList.remove("invisible");
+        }, CYCLE_DELAY);
+      }
+
+      let interval = setInterval(buffer, LETTER_DELAY);
     </script>
     
   </body>
