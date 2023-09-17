@@ -46,7 +46,6 @@
         font-family: "Menlo", monospace;
         font-size: 20px;
         visibility: hidden;
-        opacity: 1;
       }
       
       path {
@@ -70,16 +69,6 @@
         left: 0;
         right: 0;
         transition: 0.5s opacity;
-      }
-
-      @keyframes fade {
-        0% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-        }
       }
     </style>
     
@@ -114,7 +103,7 @@
   <circle class="st1" cx="400" cy="400" r="93.8"/>
   <text transform="matrix(0.9895 0.1448 -0.1448 0.9895 404.7402 305.9326)"><tspan x="0" y="0" class="st2 st3">j</tspan><tspan x="28.2" y="1.5" class="st2 st3" rotate="17.3">u</tspan><tspan x="54.5" y="11.3" class="st2 st3" rotate="34.4">s</tspan><tspan x="76.7" y="28.4" class="st2 st3" rotate="51.5">t</tspan><tspan x="93.1" y="51.3" class="st2 st3" rotate="68.8"> </tspan><tspan x="101.9" y="78.2" class="st2 st3" rotate="86.2">a</tspan><tspan x="102.3" y="106.1" class="st2 st3" rotate="103"> </tspan><tspan x="94.5" y="133.1" class="st2 st3" rotate="120.2">m</tspan><tspan x="79.1" y="156.6" class="st2 st3" rotate="137.3">o</tspan><tspan x="57.4" y="174.5" class="st2 st3" rotate="154.5">m</tspan><tspan x="31.2" y="185.3" class="st2 st3" rotate="172.1">e</tspan><tspan x="3.5" y="187.8" class="st2 st3" rotate="-171.2">n</tspan><tspan x="-24" y="182" class="st2 st3" rotate="-154">t</tspan><tspan x="-48.5" y="168.4" class="st2 st3" rotate="-136.9"> </tspan><tspan x="-68" y="148.1" class="st2 st3" rotate="-119.7">p</tspan><tspan x="-80.8" y="122.7" class="st2 st3" rotate="-102.1">l</tspan><tspan x="-85.3" y="95.3" class="st2 st3" rotate="-85.5">e</tspan><tspan x="-81.5" y="67.4" class="st2 st3" rotate="-68.2">a</tspan><tspan x="-69.7" y="41.9" class="st2 st3" rotate="-51.1">s</tspan><tspan x="-50.9" y="21" class="st2 st3" rotate="-34">e</tspan><tspan x="-26.8" y="6.6" class="st2 st3" rotate="-16.7"> </tspan></text>
 </g>
-<!-- <g id="waking_from_sleep_mode" class="ring">
+<g id="waking_from_sleep_mode" class="ring">
   <path class="st0" d="M433.7,279.6L433.7,279.6L400,400V275C411.7,275,423,276.6,433.7,279.6z"/>
   <path class="st0" d="M465,293.2L465,293.2L400,400l33.7-120.4l0,0C444.9,282.7,455.3,287.3,465,293.2z"/>
   <path class="st0" d="M491.4,314.7L491.4,314.7L400,400l65-106.8l0,0C474.7,299.1,483.6,306.4,491.4,314.7z"/>
@@ -275,7 +264,7 @@
   <circle class="st1" cx="400" cy="400" r="93.8"/>
   <text transform="matrix(0.9754 0.2206 -0.2206 0.9754 411.8945 306.5913)"><tspan x="0" y="0" class="st2 st3">l</tspan><tspan x="41.4" y="5.3" class="st2 st3" rotate="25.6">o</tspan><tspan x="76.3" y="27.9" class="st2 st3" rotate="51.1">a</tspan><tspan x="97.4" y="64" class="st2 st3" rotate="71.3">d</tspan><tspan x="102.5" y="104.8" class="st2 st3" rotate="102.3">i</tspan><tspan x="88.6" y="144" class="st2 st3" rotate="127.8">n</tspan><tspan x="59.1" y="173.5" class="st2 st3" rotate="153.4">g</tspan><tspan x="19.9" y="187.3" class="st2 st3" rotate="178.9"> </tspan><tspan x="-21.6" y="182.8" class="st2 st3" rotate="-155.5">l</tspan><tspan x="-57" y="160.9" class="st2 st3" rotate="-130">o</tspan><tspan x="-79.7" y="125.5" class="st2 st3" rotate="-104">g</tspan><tspan x="-84.7" y="84.5" class="st2 st3" rotate="-78.9">i</tspan><tspan x="-71.6" y="45" class="st2 st3" rotate="-53.4">c</tspan><tspan x="-42.6" y="15" class="st2 st3" rotate="-27.7"> </tspan></text>
 </g>
-<g id="accessing_operation_systems" class="ring"> -->
+<g id="accessing_operation_systems" class="ring">
   <path class="st0" d="M427.8,278.1L427.8,278.1L400,400V275C409.6,275,418.9,276.1,427.8,278.1z"/>
   <path class="st0" d="M454.3,287.3L454.3,287.3L400,400l27.8-121.9l0,0C437.1,280.2,445.9,283.3,454.3,287.3z"/>
   <path class="st0" d="M478,302.2L478,302.2L400,400l54.2-112.6l0-0.1C462.7,291.4,470.7,296.4,478,302.2z"/>
@@ -396,48 +385,45 @@
       function buffer() {
         const ring = rings[ringIndex];
         const ringLetters = lettersByRing[ringIndex];
-        const timeForFullRing = ringLetters.length * LETTER_DELAY;
-        const fadeDuration = timeForFullRing / 2;
-        // const fadeDelay = LETTER_DELAY * letterIndex;
-        const fadeDelay = 0;
         
         const letter = ringLetters[letterIndex];
         letter.classList.add("visible");
-        letter.style.animation = `${fadeDuration}ms linear forwards fade`;
-        // letter.style.animation = `${fadeDuration}ms linear ${fadeDelay}ms forwards fade`;
-        console.log(letter.style.animation);
 
         letterIndex++;
 
-        if (letterIndex > ringLetters.length - 1) {
-          letterIndex = 0;
-          ringIndex++;
-          if (ringIndex > rings.length - 1) {
-            reset();
-          }
-        }
-      }
-
-      function reset() {
-        clearInterval(interval);
+        if (letterIndex <= ringLetters.length - 1) {
+          setTimeout(buffer, LETTER_DELAY);
+          return;
 
         setTimeout(() => {
-          ringIndex = 0;
-
-          lettersByRing.forEach(ringLetters => {
-            ringLetters.forEach(letter => {
-              letter.classList.remove("visible");
-              letter.style.removeProperty("animation");
-            });
-          });
-
-          interval = setInterval(buffer, LETTER_DELAY);
-
-          closeButton.classList.remove("invisible");
+          ringLetters.forEach(letter => letter.classList.remove("visible"));
+          letterIndex = 0;
+          ringIndex++;
+          if (ringIndex <= rings.length - 1) {
+            setTimeout(buffer, LETTER_DELAY);
+          } else {
+            reset();
+          }
         }, CYCLE_DELAY);
       }
 
-      let interval = setInterval(buffer, LETTER_DELAY);
+      function reset() {
+        setTimeout(() => {
+          ringIndex = 0;
+          letterIndex = 0;
+
+          lettersByRing.forEach(ringLetters => {
+            ringLetters.forEach(letter => letter.classList.remove("visible"));
+          });
+
+          closeButton.classList.remove("invisible");
+
+          setTimeout(buffer, LETTER_DELAY);
+        }, CYCLE_DELAY);
+      }
+
+      setTimeout(buffer, LETTER_DELAY);
+      
     </script>
     
   </body>
