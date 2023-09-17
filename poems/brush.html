@@ -25,11 +25,11 @@
     
     <style>
       html {
-        height: 100vh;
+        height: 100%;
       }
       
       body {
-        height: 200vh;
+        height: 100%;
         margin: 0;
         font-family: "Menlo", monospace;
         font-size: 13px;
@@ -136,37 +136,36 @@
     <button type="button" class="close-button invisible">Close window</button>
     
     <script>
-      const SCROLL_DELAY = 80;
-      // const SCROLL_DELAY = 10; // DEBUG
-
       const closeButton = document.querySelector(".close-button");
       closeButton.addEventListener("click", () => window.close());
 
       const hint = document.querySelector(".hint");
 
       let lines = document.querySelectorAll(".line");
-      let counter = 0;
+
+      const heightUnit = window.innerHeight;
+      const overflowHeight = heightUnit * lines.length;
+      document.body.style.height = `${overflowHeight}px`;
       
-      // https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
-      let isScrolling = null;
       window.addEventListener("scroll", handleScroll);
 
-      function handleScroll() {
+      window.addEventListener("load", window.scroll(0, 0))
+
+      function handleScroll(e) {
         event.preventDefault();
-        window.scrollTo({top: 0, behavior: "smooth"});
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          if (counter >= lines.length) return;
 
-          lines[counter].classList.add("visible");
-          counter++;
+        const y = window.scrollY;
+        const counter = Math.floor(y / heightUnit);
 
-          hint.style.opacity = "0";
+        hint.style.opacity = "0";
 
-          if (counter === lines.length) {
-            complete();
-          }
-        }, SCROLL_DELAY);
+        lines.forEach((line, i) => {
+          line.classList.toggle("visible", i <= counter);
+        });
+
+        if (counter === lines.length - 1) {
+          complete();
+        }
       }
 
       function complete() {
