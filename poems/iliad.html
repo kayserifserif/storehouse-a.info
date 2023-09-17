@@ -61,6 +61,21 @@
         margin: 0 auto;
         transition: 0.5s opacity;
       }
+
+      .hint {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: 1s opacity;
+        pointer-events: none;
+      }
     </style>
     
   </head>
@@ -108,11 +123,15 @@
                                                                <span class="text">4</span>
     </pre>
 
+    <div class="hint">(With the wave of a wand you make the invisible visible.)</div>
+
     <button type="button" class="close-button invisible">Close window</button>
     
     <script>
       const closeButton = document.querySelector(".close-button");
       closeButton.addEventListener("click", () => window.close());
+
+      const hint = document.querySelector(".hint");
 
       let texts = document.querySelectorAll(".text");
       texts.forEach(text => text.addEventListener("mouseenter", handleMouseEnter));
@@ -124,6 +143,8 @@
         if (!textsVisible.includes(text)) {
           textsVisible.push(text);
         }
+
+        hint.style.opacity = "0";
 
         if (textsVisible.length === texts.length) {
           closeButton.classList.remove("invisible");
