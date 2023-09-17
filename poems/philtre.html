@@ -115,6 +115,9 @@ reminder: shake well before using.
 
       const closeButton = document.querySelector(".close-button");
       closeButton.addEventListener("click", () => window.close());
+
+      let numScrambles = 0;
+      const MIN_SCRAMBLES = 3;
       
       // replace each line with '!' on mousedown
       poem.addEventListener("pointerdown", event => {
@@ -182,7 +185,11 @@ reminder: shake well before using.
           lines[i].textContent = newText;
         }
 
-        closeButton.classList.remove("invisible");
+        numScrambles++;
+
+        if (numScrambles === MIN_SCRAMBLES) {
+          closeButton.classList.remove("invisible");
+        }
       }
     </script>
     
