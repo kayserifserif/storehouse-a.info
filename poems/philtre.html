@@ -33,8 +33,9 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
+        gap: 40px;
         font-family: "Menlo", monospace;
         font-size: 15px;
       }
@@ -68,6 +69,15 @@
         display: block;
         margin: 0 auto;
       }
+
+      .x {
+        opacity: 0.3;
+        transition: 0.5s opacity;
+      }
+
+      .counts .done {
+        opacity: 1;
+      }
     </style>
     
   </head>
@@ -89,6 +99,8 @@
 
 reminder: shake well before using.
     </pre>
+
+    <div class="counts"><span class="x">x</span><span class="x">x</span><span class="x">x</span></div>
 
     <button type="button" class="close-button invisible">Close window</button>
     
@@ -118,6 +130,7 @@ reminder: shake well before using.
 
       let numScrambles = 0;
       const MIN_SCRAMBLES = 3;
+      const xs = document.querySelectorAll(".x");
       
       // replace each line with '!' on mousedown
       poem.addEventListener("pointerdown", event => {
@@ -187,8 +200,12 @@ reminder: shake well before using.
 
         numScrambles++;
 
-        if (numScrambles === MIN_SCRAMBLES) {
-          closeButton.classList.remove("invisible");
+        if (numScrambles <= MIN_SCRAMBLES) {
+          xs[numScrambles - 1].classList.add("done");
+          
+          if (numScrambles === MIN_SCRAMBLES) {
+            closeButton.classList.remove("invisible");
+          }
         }
       }
     </script>
