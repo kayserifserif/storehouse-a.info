@@ -88,45 +88,65 @@
 <i><span class="text">The House of </span>*<span class="text">sterion</span></i>
     </pre>
 
-    <div class="time"></div>
+    <output class="time" for="time-slider"></output>
+    <input type="range" id="time-slider" min="0" max="1440" step="1">
 
     <button type="button" class="close-button invisible">Return to map</button>
     
     <script>
-      const texts = document.getElementsByClassName("text");
-      const HOURINMINUTES = 60;
-      const MAXMINUTES = 12 * HOURINMINUTES;
-      const MAXCOLOR = 255;
+      const MILLIS_IN_SECOND = 1000;
+      const SECONDS_IN_MINUTE = 60;
+      const MINUTES_IN_HOUR = 60;
+      const HOURS_IN_DAY = 24;
 
+      const MIDDAY_HOURS = 12;
+      const MIDDAY_MINUTES = MIDDAY_HOURS * MINUTES_IN_HOUR;
+      const MAX_COLOR = 255;
+
+      const texts = document.querySelectorAll(".text");
+
+      const timeSlider = document.querySelector("#time-slider");
+      timeSlider.value = `${getTotalMinutes(new Date())}`;
+      timeSlider.addEventListener("input", handleInput);
       const timeHtml = document.querySelector(".time");
+      let currentTime = new Date();
+      let selectedTime = getTotalMinutes(currentTime);
+      updateSelectedTime();
 
       const closeButton = document.querySelector(".close-button");
       closeButton.addEventListener("click", () => window.close());
-      setTimeout(() => closeButton.classList.remove("invisible"), 2000);
-      
-      // updates color of text depending on time of day
-      function updateColor() {
-        let time = new Date();
-        timeHtml.innerText = `${time.getHours()}:${time.getMinutes().toString().padStart(2, "0")}`;
 
-        let minuteOfDay = time.getHours() * HOURINMINUTES + time.getMinutes();
-        let color;
-        if (minuteOfDay <= MAXMINUTES) {
-          // text gets more visible towards 12pm
-          color = MAXCOLOR - (MAXCOLOR * (minuteOfDay / MAXMINUTES));
-        } else {
-          // text gets less visible towards 12am
-          color = MAXCOLOR * (MAXMINUTES / minuteOfDay);
-        }
-        for (let text of texts) {
-          text.style.color = `rgb(${color}, ${color}, ${color}`;
-        };
+      function handleInput() {
+        selectedTime = parseInt(timeSlider.value);
+        closeButton.classList.remove("invisible");
+        updateSelectedTime();
+      }
+
+      function updateSelectedTime() {
+        const [hours, minutes] = getHoursAndMinutes(selectedTime);
+        timeHtml.innerText = `${hours}:${minutes.toString().padStart(2, "0")}`;
+        updateColor();
+      }
+
+      function getTotalMinutes(time) {
+        const totalMinutes = time.getHours() * MINUTES_IN_HOUR + time.getMinutes();
+        return totalMinutes;
+      }
+
+      function getHoursAndMinutes(minutes) {
+        const hours = Math.floor(minutes / MINUTES_IN_HOUR);
+        const leftover = minutes % MINUTES_IN_HOUR;
+        return [hours, leftover];
       }
       
-      // update the first time
-      updateColor();
-      // update every minute
-      setInterval(updateColor, 10000);
+      // updates color of text depending on time of day
+      // text gets more visible towards 12pm
+      // text gets less visible towards 12am
+      function updateColor() {
+        const distFromMidday = Math.abs(MIDDAY_MINUTES - selectedTime);
+        const color = (distFromMidday / MIDDAY_MINUTES) * MAX_COLOR;
+        texts.forEach(text => text.style.color = `rgb(${color}, ${color}, ${color})`);
+      }
     </script>
     
   </body>
