@@ -123,8 +123,8 @@
       }
 
       function updateSelectedTime() {
-        const [hours, minutes] = getHoursAndMinutes(selectedTime);
-        timeHtml.innerText = `${hours}:${minutes.toString().padStart(2, "0")}`;
+        const formatted = getFormattedTime(selectedTime);
+        timeHtml.innerText = formatted;
         updateColor();
       }
 
@@ -133,10 +133,22 @@
         return totalMinutes;
       }
 
-      function getHoursAndMinutes(minutes) {
-        const hours = Math.floor(minutes / MINUTES_IN_HOUR);
-        const leftover = minutes % MINUTES_IN_HOUR;
-        return [hours, leftover];
+      function getFormattedTime(minutes) {
+        let h = Math.floor(minutes / MINUTES_IN_HOUR);
+        let m = minutes % MINUTES_IN_HOUR;
+        
+        h = h % HOURS_IN_DAY;
+        const isPm = h >= MIDDAY_HOURS;
+        if (isPm) {
+          h -= MIDDAY_HOURS;
+        }
+        if (h === 0) {
+          h += MIDDAY_HOURS;
+        }
+        const ampm = isPm ? "pm" : "am";
+
+        const formatted = `${h}:${m.toString().padStart(2, "0")} ${ampm}`;
+        return formatted;
       }
       
       // updates color of text depending on time of day
