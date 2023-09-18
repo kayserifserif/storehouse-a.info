@@ -73,23 +73,12 @@
         margin-top: 200px;
       }
 
-      /* span {
-        display: inline-block;
-        border: 1px solid red;
-        margin: -1px;
-      } */
-
-      /* .targeted {
-        border: 2px solid green;
-      } */
-
-      /* .target {
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background-color: green;
-        transform: translate(-50%, -50%);
-      } */
+      .hint {
+        transition: 0.5s opacity;
+        text-align: center;
+        margin-top: 50px;
+        opacity: 0.5;
+      }
 
       .invisible {
         opacity: 0;
@@ -104,6 +93,8 @@
   <body>
     
     <!-- <iframe src="https://kayserifserif.github.io/rivers"></iframe> -->
+
+    <div class="hint">Winding left and right, the river carves its way through.</div>
 
     <div class="asterisk" id="asterisk">*</div>
     <main class="text" id="text">
@@ -154,6 +145,8 @@
         paraTexts.push(p.innerText);
       }
 
+      const hint = document.querySelector(".hint");
+
       const closeButton = document.querySelector(".close-button");
       closeButton.addEventListener("click", () => window.close());
 
@@ -199,6 +192,8 @@
         if (e.key == "ArrowLeft" || e.key == "ArrowRight") {
 
           e.preventDefault();
+
+          hint.classList.add("invisible");
 
           // https://www.fwait.com/how-to-move-an-object-with-arrow-keys-in-javascript/
           let targetLeft = parseInt(asterisk.style.left);
