@@ -4,6 +4,22 @@ Exhibited as part of "freeFall future.text - escaping or excavating platforms", 
 
 Katherine Yang & Steffi Che
 
+## Setup
+
+In the Terminal, run the command:
+
+```
+python3 -m http.server
+```
+
+You should see the following message:
+
+```
+Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+```
+
+Open a web browser, type `localhost:8000` in the address bar, and hit enter. The site should be up and running there!
+
 ## Ideas
 
 - Items representing themes of work
