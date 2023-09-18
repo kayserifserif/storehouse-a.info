@@ -24,26 +24,332 @@
     <meta name="twitter:card" content="summary" />
     
     <style>
+      * {
+        box-sizing: border-box;
+        --secondary: #999;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
       html {
         height: 100%;
       }
-      
+
       body {
-        margin: 0;
-        height: 100%;
-      }
-      
-      iframe {
+        /* font-family: Fraunces, serif; */
+        font-family: Menlo, monospace;
+        font-weight: 300;
         width: 100%;
-        height: 100%;
-        border: none;
+        max-width: 40em;
+        margin: auto;
+        line-height: 1.5;
+        font-size: 12px;
+      }
+
+      main,
+      footer {
+        margin: 4em auto;
+        max-width: 85%;
+      }
+
+      footer,
+      footer a {
+        color: var(--secondary);
+      }
+
+      .asterisk {
+        position: absolute;
+        /* font-size: 0.5em; */
+        transform: translate(-50%, -50%);
+      }
+
+      .text {
+        text-align: left;
+        white-space: pre-wrap;
+        margin-top: 200px;
+      }
+
+      /* span {
+        display: inline-block;
+        border: 1px solid red;
+        margin: -1px;
+      } */
+
+      /* .targeted {
+        border: 2px solid green;
+      } */
+
+      /* .target {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background-color: green;
+        transform: translate(-50%, -50%);
+      } */
+
+      .invisible {
+        opacity: 0;
+      }
+
+      .close-button {
+        transition: 0.5s opacity;
       }
     </style>
     
   </head>
   <body>
     
-    <iframe src="https://kayserifserif.github.io/rivers"></iframe>
+    <!-- <iframe src="https://kayserifserif.github.io/rivers"></iframe> -->
+
+    <div class="asterisk" id="asterisk">*</div>
+    <main class="text" id="text">
+      <p>I thought how lovely and how strange a river is. A river is a river, always there, and yet the water flowing through it is never the same water and is never still. It’s always changing and is always on the move. And over time the river itself changes too. It widens and deepens as it rubs and scours, gnaws and kneads, eats and bores its way through the land. Even the greatest rivers—the Nile and the Ganges, the Yangtze and the Mississippi, the Amazon and the great grey-green greasy Limpopo all set about with fever trees—must have been no more than trickles and flickering streams before they grew into mighty rivers.</p>
+      <p>Are people like that? I wondered. Am I like that? Always me, like the river itself, always flowing but always different, like the water flowing in the river, sometimes walking steadily along andante, sometimes surging over rapids furioso, sometimes meandering with hardly any visible movement tranquilo, lento, sometimes gurgling with pleasure, sometimes sparkling in the sun, sometimes appassionato, sometimes misterioso, sometimes staccato, sometimes vivace, and always, I hope, amoroso.</p>
+      <p>Do I change like a river, widening and deepening, eddying back on myself sometimes, bursting my banks sometimes when there’s too much water, too much life in me, and sometimes dried up from lack of rain? Will the I that is me grow and widen and deepen? Or will I stagnate and become an arid riverbed? Will I allow people to dam me up and confine me so that I flow only where they want? Will I allow them to turn me into a canal to use for they own purposes? Or will I make sure I flow freely, coursing my way through the land and ploughing a valley of my own?</p>
+    </main>
+    <footer>
+      <p><button type="button" class="close-button invisible">Return to map</button></p>
+      <p>
+        Words by Aidan Chambers from <i>This is All: The Pillow Book of Cordelia Kenn</i>. 
+        Inspired by <a href="https://products.minguhongmfg.com/river-typography/">Min Guhong Mfg.
+        <a href="https://kayserifserif.place"><span class="logo"></span></a>
+        </a>
+      </p>
+    </footer>
     
+    <script>
+      // elements
+      const asterisk = document.getElementById("asterisk");
+      const text = document.getElementById("text");
+      const spaceTemp = document.createElement("span");
+      spaceTemp.innerHTML = " ";
+      spaceTemp.classList.add("space");
+      let spans;
+
+      // constants
+      const STEP = 2; // amount moved by controls
+      const SPEED = 0.5; // amount moved by falling
+      const DELAY = 50; // interval of falling
+      const EM = parseFloat(getComputedStyle(document.body).fontSize);
+      const ASTERISK_SIZE = parseFloat(getComputedStyle(asterisk).fontSize)
+      const ASTERISK_WIDTH = ASTERISK_SIZE * 0.5;
+      const SCROLL = 10; // amount that the window scrolls by
+      const RIVER_GROWTH = 0.1; // amount that the river grows by
+      const FADE = 0.01; // amount that the asterisk 
+
+      // river
+      let riverWidth = 1;
+
+      // touch
+      let startX = 0;
+      let dist = 0;
+
+      // get paragraph texts before chopping it up
+      let paraTexts = [];
+      for (let p of text.getElementsByTagName("p")) {
+        paraTexts.push(p.innerText);
+      }
+
+      const closeButton = document.querySelector(".close-button");
+      closeButton.addEventListener("click", () => window.close());
+
+      function init() {
+        // initial position
+        asterisk.style.left = window.innerWidth * 0.5 + "px";
+        asterisk.style.top = 12 * EM + "px";
+        asterisk.style.opacity = 1;
+
+        // break up text
+        let ps = [];
+        for (let paraText of paraTexts) {
+          let p = document.createElement("p");
+          for (let word of paraText.split(" ")) {
+            let span = document.createElement("span");
+            span.innerText = word;
+            span.classList.add("word");
+            p.appendChild(span);
+            p.appendChild(spaceTemp.cloneNode(true));
+          }
+          ps.push(p.outerHTML);
+        }
+        text.innerHTML = ps.join("");
+        spans = text.getElementsByTagName("span");
+
+        // remove event listeners
+        document.removeEventListener("keydown", handleKeyDown);
+        document.removeEventListener("touchstart", handleTouchStart);
+        document.removeEventListener("touchmove", handleTouchMove);
+        document.removeEventListener("touchend", handleTouchEnd);
+
+        // add event listeners
+        document.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("touchstart", handleTouchStart, {passive: false});
+        document.addEventListener("touchmove", handleTouchMove, {passive: false});
+        document.addEventListener("touchend", handleTouchEnd, {passive: false});
+      }
+      init();
+
+      // controls
+      function handleKeyDown(e) {
+
+        if (e.key == "ArrowLeft" || e.key == "ArrowRight") {
+
+          e.preventDefault();
+
+          // https://www.fwait.com/how-to-move-an-object-with-arrow-keys-in-javascript/
+          let targetLeft = parseInt(asterisk.style.left);
+          let targetTop = parseInt(asterisk.style.top);
+          
+          if (e.key == "ArrowLeft") {
+            if (targetLeft < text.offsetLeft) return false;
+            targetLeft -= STEP;
+          } else if (e.key == "ArrowRight") {
+            if (targetLeft + ASTERISK_WIDTH > text.offsetLeft + text.offsetWidth) return false;
+            targetLeft += STEP;
+          }
+
+          let targetSpan = getTargetSpan(targetLeft, targetTop, e.key);
+          // can't fall if there's a word in the way
+          if (!targetSpan || targetSpan.classList.contains("space")) {
+            // free to move
+            moveTo(targetLeft, targetTop);
+          }
+          //  else if (targetSpan.classList.contains("space")) {
+          //   // free to move and also insert space
+          //   moveTo(targetLeft, targetTop);
+          //   targetSpan.parentNode.insertBefore(spaceTemp.cloneNode(true), targetSpan);
+          // }
+
+        }
+      }
+
+      // http://www.javascriptkit.com/javatutors/touchevents.shtml
+      function handleTouchStart(e) {
+        // e.preventDefault();
+        let touchObj = e.changedTouches[0];
+        startX = parseInt(touchObj.clientX);
+      }
+
+      function handleTouchMove(e) {
+        // e.preventDefault();
+        let touchObj = e.changedTouches[0];
+        dist = parseInt(touchObj.clientX) - startX;
+        startX = parseInt(touchObj.clientX);
+
+        let targetLeft = parseInt(asterisk.style.left);
+        let targetTop = parseInt(asterisk.style.top);
+
+        let key;
+        if (dist < 0) {
+          key = "ArrowLeft";
+        } else if (dist > 0) {
+          key = "ArrowRight";
+        } else {
+          return false;
+        }
+
+        if (key == "ArrowLeft") {
+          if (targetLeft < text.offsetLeft) return false;
+          targetLeft -= STEP;
+        } else if (key == "ArrowRight") {
+          if (targetLeft + ASTERISK_WIDTH > text.offsetLeft + text.offsetWidth) return false;
+          targetLeft += STEP;
+        }
+
+        let targetSpan = getTargetSpan(targetLeft, targetTop, key);
+        // can't fall if there's a word in the way
+        if (!targetSpan) {
+          // free to move
+          moveTo(targetLeft, targetTop);
+        } else if (targetSpan.classList.contains("space")) {
+          // free to move and also insert space
+          moveTo(targetLeft, targetTop);
+          targetSpan.parentNode.insertBefore(spaceTemp.cloneNode(true), targetSpan);
+        }
+      }
+
+      function handleTouchEnd(e) {
+        // e.preventDefault();
+      }
+
+      function getTargetSpan(targetLeft, targetTop, key) {
+        // don't run into words
+        for (let span of spans) {
+          let spanLeft = span.offsetLeft;
+          let spanTop = span.offsetTop;
+          let spanWidth = span.offsetWidth;
+          if (spanTop <= targetTop && spanTop + STEP >= targetTop) {
+            switch (key) {
+              case "ArrowLeft":
+                if (spanLeft <= targetLeft && spanLeft + spanWidth >= targetLeft &&
+                    spanTop <= targetTop && spanTop + STEP >= targetTop) {
+                  return span;
+                }
+                break;
+              case "ArrowRight":
+                if (spanLeft <= targetLeft + ASTERISK_WIDTH &&
+                    spanLeft + spanWidth >= targetLeft + ASTERISK_WIDTH) {
+                  return span;
+                }
+                break;
+              case "ArrowDown":
+                if (spanLeft - 3 <= targetLeft &&
+                    spanLeft + spanWidth + 3 >= targetLeft + ASTERISK_WIDTH) {
+                  return span;
+                }
+                break;
+            }
+          }
+        }
+        return null;
+      }
+
+      function moveTo(targetLeft, targetTop) {
+        asterisk.style.left = targetLeft + "px";
+        asterisk.style.top = targetTop + "px";
+      }
+
+      function fall() {
+
+        let targetLeft = asterisk.offsetLeft;
+        let targetTop = asterisk.offsetTop + SPEED;
+
+        if (targetTop >= text.offsetTop + text.offsetHeight) {
+          let opacity = parseFloat(getComputedStyle(asterisk).opacity);
+          opacity -= FADE;
+          opacity = Math.max(0, opacity);
+          asterisk.style.opacity = opacity;
+          moveTo(targetLeft, targetTop);
+          if (opacity === 0) {
+            complete();
+          }
+          return;
+        }
+
+        let targetSpan = getTargetSpan(targetLeft, targetTop, "ArrowDown");
+        if (!targetSpan) {
+          moveTo(targetLeft, targetTop);
+        } else if (targetSpan.classList.contains("space")) {
+          moveTo(targetLeft, targetTop);
+          for (let i = 0; i < Math.floor(riverWidth); i++) {
+            targetSpan.parentNode.insertBefore(spaceTemp.cloneNode(true), targetSpan);
+          }
+          window.scrollBy(0, SCROLL);
+          riverWidth += RIVER_GROWTH;
+        }
+
+      }
+
+      function complete() {
+        clearInterval(interval);
+        closeButton.classList.remove("invisible");
+      }
+
+      const interval = setInterval(fall, DELAY);
+    </script>
   </body>
 </html>
