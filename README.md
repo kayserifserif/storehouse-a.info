@@ -20,6 +20,8 @@ Serving HTTP on :: port 8000 (http://[::]:8000/) ...
 
 Open a web browser, type `localhost:8000` in the address bar, and hit enter. The site should be up and running there!
 
+Hosted on [Netlify](https://www.netlify.com/).
+
 ## Ideas
 
 - Items representing themes of work
